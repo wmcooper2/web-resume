@@ -10,6 +10,8 @@
 
 # production
 /build
+/webresume
+/src/personaldata.js
 
 # misc
 .DS_Store

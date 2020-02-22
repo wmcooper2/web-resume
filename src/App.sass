@@ -1,0 +1,110 @@
+$phoneMinWidth: 320px
+$phoneMaxWidth: 480px
+$tabletMinWidth: 768px
+$tabletMaxWidth: 1024px
+
+.profilebar
+    grid-area: "profilebar"
+.details
+    grid-area: "details"
+.picture
+    grid-area: "picture"
+.name
+    grid-area: "name"
+.engjap
+    grid-area: "engjap"
+.qrcode
+    grid-area: "qrcode"
+.skills
+    grid-area: "skills"
+.experience
+    grid-area: "experience"
+.education
+    grid-area: "education"
+.certifications
+    grid-area: "certifications"
+.description
+    grid-area: "description"
+.personalsite
+    grid-area: "peronsalsite"
+
+// phones
+@media (max-device-width : $phoneMaxWidth)
+    .resume
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 50px 100vh
+        grid-template-areas: "profilebar" "details"
+
+    .profilebar
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-areas: "picture name engjap qrcode"
+
+    .wireframe
+        color: green
+        background-color: yellow
+        text-align: center
+        border: 1px solid black
+
+// tablets
+@media (min-device-width: $phoneMaxWidth+1) and (max-device-width : $tabletMaxWidth)
+    .resume
+        display: grid
+        grid-template-columns: 6fr 2fr
+        grid-template-rows: 100vh
+
+    .profilebar
+        display: grid
+        order: 2
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr 6fr 6fr 1fr
+
+    .name
+        order: 0
+
+    .picture
+        order: 1
+
+    .qrcode
+        order: 2
+
+    .engjap
+        order: 3
+
+    .wireframe
+        color: blue
+        background-color: orange
+        text-align: center
+        border: 1px solid black
+
+// large screens
+@media(min-device-width: $tabletMaxWidth+1)
+    .resume
+        display: grid
+        grid-template-columns: 4fr 1fr
+        grid-template-rows: 100vh
+
+    .profilebar
+        display: grid
+        order: 2
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr 6fr 6fr 1fr
+
+    .name
+        order: 0
+
+    .picture
+        order: 1
+
+    .qrcode
+        order: 2
+
+    .engjap
+        order: 3
+
+    .wireframe
+        color: red
+        background-color: silver
+        text-align: center
+        border: 1px solid black
