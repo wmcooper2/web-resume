@@ -2,6 +2,20 @@ $phoneMinWidth: 320px
 $phoneMaxWidth: 480px
 $tabletMinWidth: 768px
 $tabletMaxWidth: 1024px
+$profileBarColor: blue
+$profileBarTextColor: white
+
+// for development
+*
+    border: 1px solid black
+
+h3, h4
+    text-align: center
+    font-family: Tahoma, Arial, "Times New Roman"
+
+.educationheader
+    display: flex
+    justify-content: space-between
 
 .profilebar
     grid-area: "profilebar"
@@ -17,29 +31,36 @@ $tabletMaxWidth: 1024px
     grid-area: "qrcode"
 .skills
     grid-area: "skills"
-.experience
-    grid-area: "experience"
+.experiences
+    grid-area: "experiences"
 .education
     grid-area: "education"
 .certifications
     grid-area: "certifications"
 .description
     grid-area: "description"
-.personalsite
-    grid-area: "peronsalsite"
+.projects
+    grid-area: "projects"
 
 // phones
 @media (max-device-width : $phoneMaxWidth)
     .resume
         display: grid
         grid-template-columns: 1fr
-        grid-template-rows: 50px 100vh
         grid-template-areas: "profilebar" "details"
 
     .profilebar
         display: grid
+        color: $profileBarTextColor
+        background-color: $profileBarColor
         grid-template-columns: 1fr 1fr 1fr 1fr
         grid-template-areas: "picture name engjap qrcode"
+
+    .picture
+        background-image: url("picture-small.jpg")
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
 
     .wireframe
         color: green
@@ -52,23 +73,28 @@ $tabletMaxWidth: 1024px
     .resume
         display: grid
         grid-template-columns: 6fr 2fr
-        grid-template-rows: 100vh
 
     .profilebar
         display: grid
+        color: $profileBarTextColor
+        background-color: $profileBarColor
+        max-height: 100vh
         order: 2
         grid-template-columns: 1fr
         grid-template-rows: 1fr 6fr 6fr 1fr
 
+    .picture
+        background-image: url("picture-medium.jpg")
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
     .name
         order: 0
-
     .picture
         order: 1
-
     .qrcode
         order: 2
-
     .engjap
         order: 3
 
@@ -83,23 +109,28 @@ $tabletMaxWidth: 1024px
     .resume
         display: grid
         grid-template-columns: 4fr 1fr
-        grid-template-rows: 100vh
 
     .profilebar
         display: grid
+        color: $profileBarTextColor
+        background-color: $profileBarColor
+        max-height: 100vh
         order: 2
         grid-template-columns: 1fr
         grid-template-rows: 1fr 6fr 6fr 1fr
 
+    .picture
+        background-image: url("picture-large.jpg")
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
     .name
         order: 0
-
     .picture
         order: 1
-
     .qrcode
         order: 2
-
     .engjap
         order: 3
 

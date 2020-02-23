@@ -1,26 +1,76 @@
 import React from "react";
 import "./App.sass";
+import {
+  ProfileBar,
+  Description,
+  Projects,
+  Skills,
+  // Experiences,
+  Education,
+  Certifications
+} from "./components";
+import {
+  description,
+  projects,
+  skills,
+  // experiences,
+  education,
+  certifications
+} from "./data";
 
-function App() {
-  return (
-    <div className="resume wireframe">
-      <div className="profilebar wireframe">
-        <div className="picture wireframe">Picture</div>
-        <div className="name wireframe">Name</div>
-        <div className="engjap wireframe">EngJap</div>
-        <div className="qrcode wireframe">QR Code</div>
-      </div>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { screenW: 0, screenH: 0 };
+    this.updateScreenSize = this.updateScreenSize.bind(this);
+  }
 
-      <div className="details wireframe">
-        <div className="description wireframe">Description</div>
-        <div className="personalsite wireframe">Personal Sites</div>
-        <div className="skills wireframe">Skills</div>
-        <div className="experience wireframe">Experience</div>
-        <div className="education wireframe">Education</div>
-        <div className="certifications wireframe">Certifications</div>
+  componentDidMount() {
+    this.updateScreenSize();
+    window.addEventListener("resize", this.updateScreenSize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateScreenSize);
+  }
+
+  updateScreenSize() {
+    this.setState({
+      screenW: window.innerWidth,
+      screenH: window.innerHeight
+    });
+  }
+
+  render() {
+    return (
+      <div className="resume">
+        <ProfileBar {...this.state} />
+        <div className="details">
+          <Description
+            {...description}
+            {...this.state}
+          />
+          <Projects
+            {...projects}
+            {...this.state}
+          />
+          <Skills
+            {...skills}
+            {...this.state}
+          />
+          {/* <Experiences {...experiences} /> */}
+          <Education
+            {...education}
+            {...this.state}
+          />
+          <Certifications
+            {...certifications}
+            {...this.state}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
