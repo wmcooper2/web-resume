@@ -8,6 +8,9 @@ $smallFont: 1em
 $medFont: 1.5em
 $headerColor: #7397FF
 $tableHeaderColor: #A0B9FF  
+$linkColor: black
+$smallHeaderHeight: 80px
+$medHeaderWidth: 150px
 // for development
 // *
     // border: 1px solid black
@@ -15,19 +18,18 @@ $tableHeaderColor: #A0B9FF
 h2, h3
     text-align: center
     font-family: Tahoma, Arial, "Times New Roman"
+    padding: 6px
     background-color: $headerColor
 
 a
+    color: $linkColor
     text-decoration: none
     border: none
 
 a:hover
+    color: $linkColor
     background-color: "#E5E5E5"
     text-decoration: none
-
-.schoolsheader
-    display: flex
-    justify-content: space-between
 
 .profilebar
     grid-area: "profilebar"
@@ -54,9 +56,6 @@ a:hover
 .projects
     grid-area: "projects"
 
-.school, .schoolheader
-    margin: 9px 3px
-
 // phones
 @media (max-device-width : $phoneMaxWidth)
     .resume
@@ -68,14 +67,17 @@ a:hover
         display: grid
         color: $profileBarTextColor
         background-color: $profileBarColor
-        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-columns: 1fr 2fr 1fr 1fr
         grid-template-areas: "picture name engjap qrcode"
 
-    .picture
-        background-image: url("picture-small.jpg")
-        background-size: contain
-        background-repeat: no-repeat
-        background-position: center
+    img
+        height: $smallHeaderHeight
+        border-radius: 3px
+
+    .qrcode
+        display: flex
+        justify-content: center
+        align-items: center
 
     .skill
         display: flex
@@ -99,12 +101,6 @@ a:hover
     .schooldate
         width: 10%
 
-    .wireframe
-        color: green
-        background-color: yellow
-        text-align: center
-        border: 1px solid black
-
 // tablets
 @media (min-device-width: $phoneMaxWidth+1) and (max-device-width : $tabletMaxWidth)
     .resume
@@ -120,11 +116,9 @@ a:hover
         grid-template-columns: 1fr
         grid-template-rows: 1fr 6fr 6fr 1fr
 
-    .picture
-        background-image: url("picture-medium.jpg")
-        background-size: contain
-        background-repeat: no-repeat
-        background-position: center
+    img
+        width: $medHeaderWidth
+        border-radius: 3px
 
     .name
         order: 0
@@ -134,12 +128,6 @@ a:hover
         order: 2
     .engjap
         order: 3
-
-    .wireframe
-        color: blue
-        background-color: orange
-        text-align: center
-        border: 1px solid black
 
 // large screens
 @media(min-device-width: $tabletMaxWidth+1)
@@ -170,9 +158,3 @@ a:hover
         order: 2
     .engjap
         order: 3
-
-    .wireframe
-        color: red
-        background-color: silver
-        text-align: center
-        border: 1px solid black
