@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.sass";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   ProfileBar,
   Description,
@@ -21,8 +22,9 @@ import {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { screenW: 0, screenH: 0 };
+    this.state = { screenW: 0, screenH: 0, language: "English" };
     this.updateScreenSize = this.updateScreenSize.bind(this);
+    this.changeLanguage = this.changeLanguage.bind(this);
   }
 
   componentDidMount() {
@@ -41,32 +43,23 @@ class App extends React.Component {
     });
   }
 
+  changeLanguage = () => {
+    let lang = this.state.language === "English" ? "Japanese" : "English";
+    // console.log("change language: ", lang);
+    this.setState({ language: lang });
+  };
+
   render() {
     return (
       <div className="resume">
-        <ProfileBar {...this.state} />
+        <ProfileBar {...this.state} changeLanguage={this.changeLanguage} />
         <div className="details">
-          <Description
-            {...description}
-            {...this.state}
-          />
-          <Projects
-            {...projects}
-            {...this.state}
-          />
-          <Skills
-            {...skills}
-            {...this.state}
-          />
+          <Description {...description} {...this.state} />
+          <Projects {...projects} {...this.state} />
+          <Skills {...skills} {...this.state} />
           {/* <Experiences {...experiences} /> */}
-          <Education
-            {...education}
-            {...this.state}
-          />
-          <Certifications
-            {...certifications}
-            {...this.state}
-          />
+          <Education {...education} {...this.state} />
+          <Certifications {...certifications} {...this.state} />
         </div>
       </div>
     );

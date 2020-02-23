@@ -4,16 +4,28 @@ $tabletMinWidth: 768px
 $tabletMaxWidth: 1024px
 $profileBarColor: blue
 $profileBarTextColor: white
-
+$smallFont: 1em
+$medFont: 1.5em
+$headerColor: #7397FF
+$tableHeaderColor: #A0B9FF  
 // for development
-*
-    border: 1px solid black
+// *
+    // border: 1px solid black
 
-h3, h4
+h2, h3
     text-align: center
     font-family: Tahoma, Arial, "Times New Roman"
+    background-color: $headerColor
 
-.educationheader
+a
+    text-decoration: none
+    border: none
+
+a:hover
+    background-color: "#E5E5E5"
+    text-decoration: none
+
+.schoolsheader
     display: flex
     justify-content: space-between
 
@@ -42,6 +54,9 @@ h3, h4
 .projects
     grid-area: "projects"
 
+.school, .schoolheader
+    margin: 9px 3px
+
 // phones
 @media (max-device-width : $phoneMaxWidth)
     .resume
@@ -61,6 +76,28 @@ h3, h4
         background-size: contain
         background-repeat: no-repeat
         background-position: center
+
+    .skill
+        display: flex
+        justify-content: space-between
+        font-size: $smallFont
+
+    .schoolsheader
+        background-color: $tableHeaderColor
+        font-weight: bold
+
+    .school
+        display: flex
+        justify-content: space-between
+
+    .schoolname
+        width: 30%
+
+    .schoollocation
+        width: 30%
+
+    .schooldate
+        width: 10%
 
     .wireframe
         color: green
