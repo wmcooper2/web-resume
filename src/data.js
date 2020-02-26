@@ -4,25 +4,42 @@ import { FaPython, FaJsSquare, FaReact } from "react-icons/fa";
 const description = {
   title: "About Me",
   content:
-    "I'm a self-taught developer with 5 years experience. My primary strengths are Python and Javascript. I enjoy making online games and tools for TEFL teachers. I'm looking for my first professional software position. Feel free to pass around my information to anyone who may be interested.",
+    "I'm a self-taught developer with 5 years experience. My primary strengths are Python and Javascript. I enjoy making online games and tools for TEFL teachers. Visit the links in 'My Web Presence' section to see what I've done so far. I'm looking for my first professional software position, so feel free to pass around my information to anyone who may be interested. Thanks for taking the time to review my work.",
   japaneseTitle: "求人情報",
-  japaneseContent: "自分の紹介"
+  japaneseContent:
+    "私は独学で5年の経験を持つプログラマーです。 私の主な強みは、PythonとJavascriptです。 TEFL教師向けのオンラインゲームやツールを作るのは楽しいです。 [マイWebプレゼンス]セクションのリンクにアクセスして、これまでに行ったことを確認します。 私は私の最初のプロのソフトウェアのポジションを探していますので、興味のある人に気軽に情報を伝えてください。 私の作品をレビューしてくれてありがとう。"
 };
 
 //github projects
 const projects = {
   title: "My Web Presence",
+  japaneseTitle: "ウェブプレッスンス",
   content: [
-    { what: "Project Site", url: "https://www.wmcooper2.com/", logo: "" },
-    { what: "TEFL Assistant", url: "https://www.teflassistant.com", logo: "" },
-    { what: "GitHub", url: "https://github.com/wmcooper2", logo: "" },
+    {
+      what: "Project Site",
+      japaneseWhat: "プロジェクトサイト（自分の）",
+      url: "https://www.wmcooper2.com/",
+      logo: ""
+    },
+    {
+      what: "TEFL Assistant",
+      japaneseWhat: "TEFLアシスタント（自分の）",
+      url: "https://www.teflassistant.com",
+      logo: ""
+    },
+    {
+      what: "GitHub",
+      japaneseWhat: "GitHub",
+      url: "https://github.com/wmcooper2",
+      logo: ""
+    },
     {
       what: "LinkedIn",
+      japaneseWhat: "LinkedIn",
       url: "https://www.linkedin.com/in/wandalcooper/",
       logo: ""
     }
-  ],
-  japaneseTitle: "ウェブプレッスンス"
+  ]
 };
 
 // tech used

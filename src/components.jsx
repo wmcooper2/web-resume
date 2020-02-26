@@ -1,6 +1,6 @@
 import React from "react";
 import { IconContext } from "react-icons";
-import { FaQrcode } from "react-icons/fa";
+// import { FaQrcode } from "react-icons/fa";
 import smallPic from "./picture-small.jpg";
 import medPic from "./picture-medium.jpg";
 import largePic from "./picture-large.jpg";
@@ -21,11 +21,11 @@ const ProfileBar = props => {
   const barHeight =
     screenW < smallMax ? "80px" : screenW < medMax ? "100%" : "100%";
   const lang = language === "English" ? "日本語" : "English";
-  const nameSize =
-    screenW < smallMax ? "medium" : screenW < medMax ? "x-large" : "x-large";
+  //   const nameSize =
+  // screenW < smallMax ? "medium" : screenW < medMax ? "x-large" : "x-large";
 
   const nameStyles = {
-    fontSize: nameSize,
+    // fontSize: nameSize,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -49,7 +49,7 @@ const ProfileBar = props => {
   if (image === largePic) {
     pictureStyles.width = "200px";
   }
-  const iconStyles = { color: "white", size: "3em" };
+  //   const iconStyles = { color: "white", size: "3em" };
 
   return (
     <div className="profilebar" style={{ height: barHeight }}>
@@ -66,37 +66,47 @@ const ProfileBar = props => {
       >
         {lang}
       </div>
-      <div className="qrcode">
-        <IconContext.Provider value={iconStyles}>
-          <FaQrcode />
-        </IconContext.Provider>
-      </div>
+      {/* <div className="qrcode"> */}
+      {/* <IconContext.Provider value={iconStyles}> */}
+      {/* <FaQrcode /> */}
+      {/* </IconContext.Provider> */}
+      {/* </div> */}
     </div>
   );
 };
 
 const Description = props => {
   //   console.log("Description: ", props);
-  const { title, content, screenW, language, japaneseTitle } = props;
-  //   const textAlign = screenW < smallMax ? "left" : "center";
+  const {
+    title,
+    content,
+    // screenW,
+    language,
+    japaneseTitle,
+    japaneseContent
+  } = props;
 
   return (
     <div className="description">
       <h3>{language === "English" ? title : japaneseTitle}</h3>
-      <p style={{ textAlign: "center", padding: listItemPadding }}>{content}</p>
+      <p style={{ textAlign: "center", padding: listItemPadding }}>
+        {language === "English" ? content : japaneseContent}
+      </p>
     </div>
   );
 };
 
+//"my web presence" section
 const Projects = props => {
-  //"my web presence" section
   const { title, content, language, japaneseTitle } = props;
   const projectStyles = { padding: listItemPadding, textAlign: "center" };
   let projects = [];
   for (let project of content) {
     projects.push(
       <div key={projects.length} style={projectStyles}>
-        <a href={project.url}>{project.what}</a>
+        <a href={project.url}>
+          {language === "English" ? project.what : project.japaneseWhat}
+        </a>
       </div>
     );
   }

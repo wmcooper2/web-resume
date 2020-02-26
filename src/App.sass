@@ -67,11 +67,12 @@ a:hover
         grid-template-areas: "profilebar" "details"
 
     .profilebar
+        font-size: 24px
         display: grid
         color: $profileBarTextColor
         background-color: $profileBarColor
-        grid-template-columns: 1fr 2fr 1fr 1fr
-        grid-template-areas: "picture name engjap qrcode"
+        grid-template-columns: 1fr 2fr 1fr
+        grid-template-areas: "picture name engjap"
 
     img
         height: $smallHeaderHeight
@@ -104,6 +105,7 @@ a:hover
 
     .schooldate
         text-align: right
+        width: 80px
 
 // tablets
 @media (min-device-width: $phoneMaxWidth+1) and (max-device-width : $tabletMaxWidth)
@@ -116,12 +118,12 @@ a:hover
 
     .profilebar
         display: grid
+        justify-content: flex-start
+        align-content: flex-start
         color: $profileBarTextColor
         background-color: $profileBarColor
-        max-height: 100vh
         order: 2
         grid-template-columns: 1fr
-        grid-template-rows: 1fr 6fr 6fr 1fr
 
     img
         width: $medHeaderWidth
@@ -176,12 +178,13 @@ a:hover
 
     .profilebar
         display: grid
+        flex-direction: column
+        justify-content: flex-start
+        align-content: flex-start
         color: $profileBarTextColor
         background-color: $profileBarColor
-        max-height: 100vh
         order: 2
         grid-template-columns: 1fr
-        grid-template-rows: 1fr 6fr 6fr 1fr
 
     img
         max-width: 80%
