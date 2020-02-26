@@ -19,7 +19,7 @@ const ProfileBar = props => {
   const image =
     screenW < smallMax ? smallPic : screenW < medMax ? medPic : largePic;
   const barHeight =
-    screenW < smallMax ? "80px" : screenW < medMax ? "100vh" : "100vh";
+    screenW < smallMax ? "80px" : screenW < medMax ? "100%" : "100%";
   const lang = language === "English" ? "日本語" : "English";
   const nameSize =
     screenW < smallMax ? "medium" : screenW < medMax ? "x-large" : "x-large";
@@ -38,12 +38,19 @@ const ProfileBar = props => {
   };
 
   let imageStyles = { display: "flex", overflow: "hidden" };
-  let pictureStyles = {};
   if (image === medPic) {
     imageStyles.margin = "auto auto";
   }
+  if (image === largePic) {
+    imageStyles.margin = "auto auto";
+  }
 
+  let pictureStyles = {};
+  if (image === largePic) {
+    pictureStyles.width = "200px";
+  }
   const iconStyles = { color: "white", size: "3em" };
+
   return (
     <div className="profilebar" style={{ height: barHeight }}>
       <div className="picture" sytle={pictureStyles}>
@@ -111,13 +118,16 @@ const Skills = props => {
         key={skills.length}
         style={{ padding: listItemPadding }}
       >
-        <div>{skill.what}</div>
-        <IconContext.Provider value={{ color: "blue", size: "1.5em" }}>
-          {skill.logo}
-        </IconContext.Provider>
+        <div className="skillitem">{skill.what}</div>
+        <div className="skillitem">
+          <IconContext.Provider value={{ color: "blue", size: "1.5em" }}>
+            {skill.logo}
+          </IconContext.Provider>
+        </div>
       </div>
     );
   }
+
   return (
     <div className="skills">
       <h3>{language === "English" ? title : japaneseTitle}</h3>
@@ -135,16 +145,20 @@ const Experiences = props => {
     </div>
   );
 };
-const headerStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  padding: listItemPadding
-};
+
 const Education = props => {
   //   console.log("Education: ", props);
-  const { title, content } = props;
+  let { title, content, screenW, language } = props;
+  title = language === "English" ? "Education" : "学歴";
   let schools = [];
   // if the size is small, include the years
+
+  const headerStyles = {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: listItemPadding
+  };
+
   for (let item of content) {
     // console.log(item);
     schools.push(
@@ -153,32 +167,44 @@ const Education = props => {
         key={schools.length}
         style={{ padding: listItemPadding }}
       >
-        <span className="schoolname">{item.what}</span>
-        <span className="schoollocation">{item.where}</span>
-        <span className="schooldate">{item.when[1].getFullYear()}</span>
+        <span className="schoolname">
+          {screenW >= medMax ? item.longWhat : item.shortWhat}
+        </span>
+        <span className="schoollocation">
+          {screenW >= medMax ? item.longWhere : item.shortWhere}
+        </span>
+        <span className="schooldate">
+          {screenW >= medMax
+            ? `${item.when[0].getFullYear()} - ${item.when[1].getFullYear()}`
+            : item.when[1].getFullYear()}
+        </span>
       </div>
     );
   }
+
   return (
     <div className="education">
       <h3>{title}</h3>
       <div className="schoolsheader" style={headerStyles}>
         <span className="schoolname">School</span>
         <span className="schoollocation">Location</span>
-        <span className="schooldate">Dates</span>
+        <span className="schooldate">
+          {screenW < medMax ? "Finished" : "Dates"}
+        </span>
       </div>
-      {schools}
+      {schools.reverse()}
     </div>
   );
 };
 
 const Certifications = props => {
-  const { title, content } = props;
+  let { title, content, language } = props;
   const certStyles = {
     textDecoration: "none",
     padding: listItemPadding,
     textAlign: "center"
   };
+  title = language === "English" ? "Certifications" : "免許・資格";
   let certs = [];
   for (let cert of content) {
     // console.log(cert);
@@ -191,7 +217,7 @@ const Certifications = props => {
   return (
     <div className="certifications">
       <h3>{title}</h3>
-      {certs}
+      {certs.reverse()}
     </div>
   );
 };

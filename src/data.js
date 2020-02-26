@@ -46,43 +46,67 @@ const education = {
   title: "Education",
   content: [
     {
-      what: "Foothill Farms HS",
+      shortWhat: "Foothill Farms HS",
+      longWhat: "Foothill Farms High School",
       where: "Sacramento, CA",
+      shortWhere: "Sacramento, CA",
+      longWhere: "Sacramento, California",
       when: [new Date(2001, 6), new Date(2002, 10)]
     },
     {
-      what: "East Nicolaus HS",
+      shortWhat: "East Nicolaus HS",
+      longWhat: "East Nicolaus High School",
       where: "Trowbridge, CA",
+      shortWhere: "Trowbridge, CA",
+      longWhere: "Trowbridge, California",
       when: [new Date(2002, 10), new Date(2005, 6)]
     },
     {
-      what: "Universal Technical Institute",
+      shortWhat: "UTI",
+      longWhat: "Universal Technical Institute",
       where: "Avondale, AZ",
+      shortWhere: "Avondale, AZ",
+      longWhere: "Avondale, Arizona",
       when: [new Date(2005, 6), new Date(2006, 7)]
     },
     {
-      what: "Universal Technical Institute",
+      shortWhat: "UTI",
+      longWhat: "Universal Technical Institute",
       where: "Sacramento, CA",
+      shortWhere: "Sacramento, CA",
+      longWhere: "Sacramento, Calfornia",
       when: [new Date(2006, 7), new Date(2007, 6)]
     },
     {
-      what: "Naval Nuclear Power Training Command",
+      shortWhat: "NNPTC",
+      longWhat: "Naval Nuclear Power Training Command",
       where: "Goose Creek, SC",
+      shortWhere: "Goose Creek, SC",
+      longWhere: "Goose Creek, South Carolina",
       when: [new Date(2007, 12), new Date(2008, 10)]
     },
     {
-      what: "Nuclear Prototype Training",
+      shortWhat: "NPT",
+      longWhat: "Nuclear Prototype Training",
       where: "Ballston Spa, NY",
+      shortWhere: "Ballston Spa, NY",
+      longWhere: "Ballston Spa, New York",
       when: [new Date(2008, 10), new Date(2009, 5)]
     },
     {
-      what: "American River College",
+      shortWhat: "ARC",
+      longWhat: "American River College",
       where: "Sacramento, CA",
+      shortWhere: "Sacramento, CA",
+      longWhere: "Sacramento, California",
       when: [new Date(2010, 5), new Date(2011, 6)]
     },
     {
-      what: "DeVry University",
+      shortWhat: "DeVry",
+      longWhat: "DeVry University",
       where: "Elk Grove, CA",
+      shortWhere: "Elk Grove, CA",
+      longWhere: "Elk Grove, California",
       when: [new Date(2012, 2), new Date(2014, 8)]
     }
   ]

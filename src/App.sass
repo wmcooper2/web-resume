@@ -5,7 +5,7 @@ $tabletMaxWidth: 1024px
 $profileBarColor: blue
 $profileBarTextColor: white
 $smallFont: 1em
-$medFont: 1.5em
+$medFont: 1.2em
 $headerColor: #7397FF
 $tableHeaderColor: #A0B9FF  
 $linkColor: black
@@ -58,6 +58,9 @@ a:hover
 
 // phones
 @media (max-device-width : $phoneMaxWidth)
+    div
+        font-size: $smallFont
+
     .resume
         display: grid
         grid-template-columns: 1fr
@@ -82,7 +85,8 @@ a:hover
     .skill
         display: flex
         justify-content: space-between
-        font-size: $smallFont
+        max-width: 50vh
+        margin: auto auto
 
     .schoolsheader
         background-color: $tableHeaderColor
@@ -99,10 +103,13 @@ a:hover
         width: 30%
 
     .schooldate
-        width: 10%
+        text-align: right
 
 // tablets
 @media (min-device-width: $phoneMaxWidth+1) and (max-device-width : $tabletMaxWidth)
+    div
+        font-size: 20px
+
     .resume
         display: grid
         grid-template-columns: 6fr 2fr
@@ -120,6 +127,11 @@ a:hover
         width: $medHeaderWidth
         border-radius: 3px
 
+    .qrcode
+        display: flex
+        justify-content: center
+        align-items: center
+
     .name
         order: 0
     .picture
@@ -129,8 +141,35 @@ a:hover
     .engjap
         order: 3
 
+    .skill
+        display: flex
+        justify-content: space-between
+        max-width: 50vh
+        margin: auto auto
+
+    .schoolsheader
+        background-color: $tableHeaderColor
+        font-weight: bold
+
+    .school
+        display: flex
+        justify-content: space-between
+
+    .schoolname
+        width: 40%
+
+    .schoollocation
+        width: 30%
+
+    .schooldate
+        width: 30%
+        text-align: right
+
 // large screens
 @media(min-device-width: $tabletMaxWidth+1)
+    div
+        font-size: 26px
+
     .resume
         display: grid
         grid-template-columns: 4fr 1fr
@@ -144,11 +183,14 @@ a:hover
         grid-template-columns: 1fr
         grid-template-rows: 1fr 6fr 6fr 1fr
 
-    .picture
-        background-image: url("picture-large.jpg")
-        background-size: contain
-        background-repeat: no-repeat
-        background-position: center
+    img
+        max-width: 80%
+        border-radius: 3px
+
+    .qrcode
+        display: flex
+        justify-content: center
+        align-items: center
 
     .name
         order: 0
@@ -158,3 +200,29 @@ a:hover
         order: 2
     .engjap
         order: 3
+
+    .skill
+        display: flex
+        justify-content: space-between
+        min-width: 50vh
+        min-width: 80vh
+        margin: auto auto
+
+    .schoolsheader
+        background-color: $tableHeaderColor
+        font-weight: bold
+
+    .school
+        display: flex
+        justify-content: space-between
+        font-size: 20px
+
+    .schoolname
+        width: 40%
+
+    .schoollocation
+        width: 40%
+
+    .schooldate
+        text-align: left
+        width: 15%
