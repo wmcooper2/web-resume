@@ -10,7 +10,7 @@
 
 # production
 /build
-/webresume
+/resume
 /src/personaldata.js
 
 # misc
