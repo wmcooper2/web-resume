@@ -2,31 +2,48 @@ $phoneMinWidth: 320px
 $phoneMaxWidth: 480px
 $tabletMinWidth: 768px
 $tabletMaxWidth: 1024px
-$profileBarColor: blue
+// $profileBarColor: blue
+$profileBarColor: #2046F6
+$linkColor: #2046F6
 $profileBarTextColor: white
 $smallFont: 1em
 $medFont: 1.2em
-$headerColor: #7397FF
+$darkHeaderColor: #7397FF
+$lightHeaderColor: #BBCCFF
 $tableHeaderColor: #A0B9FF  
-$linkColor: black
+// $linkColor: black
 $smallHeaderHeight: 80px
 $medHeaderWidth: 150px
 $fancyFonts: Satisfy, Caveat
 $japaneseFont: "Noto Serif JP"
+$aTagHoverColor: #E5E5E5
 // for development
 // *
     // border: 1px solid black
 
 h2, h3
     text-align: center
+    text-shadow: 1px 1px white
     font-family: $fancyFonts, Tahoma, Arial, "Times New Roman"
     padding: 6px
-    background-color: $headerColor
+    // background-color: $darkHeaderColor
+    background-image: linear-gradient(to right, $darkHeaderColor, $lightHeaderColor, $darkHeaderColor)
+
+a
+    color: $linkColor
 
 a:hover
     color: $linkColor
-    background-color: "#E5E5E5"
-    text-decoration: none
+    background-color: $aTagHoverColor
+    border-radius: 3px
+    padding: 6px
+    cursor: pointer
+
+div.school, div.skillitem
+    font-family: "EB Garamond"
+
+div.certification
+    font-family: "EB Garamond"
 
 .profilebar
     grid-area: "profilebar"
@@ -37,13 +54,19 @@ a:hover
 .name
     grid-area: "name"
     font-family: $fancyFonts, $japaneseFont
+    text-shadow: 1px 1px black
 .engjap
     grid-area: "engjap"
     transition-duration: 0.3s
+    text-shadow: 1px 1px black
+    cursor: pointer
 .qrcode
     grid-area: "qrcode"
 .skills
     grid-area: "skills"
+.skilllogo
+    max-width: 50px
+    max-height: 50px
 .experiences
     grid-area: "experiences"
 .education
@@ -95,7 +118,7 @@ a:hover
     .skill
         display: flex
         justify-content: space-between
-        max-width: 50vh
+        max-width: 80vh
         margin: auto auto
 
     .schoolsheader
@@ -151,6 +174,11 @@ a:hover
         order: 0
     .picture
         order: 1
+        display: flex
+        justify-content: center
+    .profile
+        display: flex
+        justify-content: center
     .qrcode
         order: 2
     .engjap
@@ -163,7 +191,7 @@ a:hover
     .skill
         display: flex
         justify-content: space-between
-        max-width: 50vh
+        max-width: 80vh
         margin: auto auto
 
     .schoolsheader
@@ -196,7 +224,7 @@ a:hover
     .profilebar
         display: grid
         flex-direction: column
-        justify-content: flex-start
+        justify-content: center
         align-content: flex-start
         color: $profileBarTextColor
         background-color: $profileBarColor
@@ -220,6 +248,7 @@ a:hover
         order: 0
     .picture
         order: 1
+        margin: auto auto
     .qrcode
         order: 2
     .engjap
@@ -233,7 +262,7 @@ a:hover
         display: flex
         justify-content: space-between
         min-width: 50vh
-        min-width: 80vh
+        max-width: 100vh
         margin: auto auto
 
     .schoolsheader

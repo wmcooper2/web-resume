@@ -1,5 +1,6 @@
-import React from "react";
-import { FaPython, FaJsSquare, FaReact } from "react-icons/fa";
+import pythonIcon from "./python-icon.png";
+import javascriptIcon from "./javascript-icon.png";
+import reactIcon from "./react-icon.png";
 
 const description = {
   title: "About Me",
@@ -44,11 +45,11 @@ const projects = {
 
 // tech used
 const skills = {
-  title: "Skills",
+  title: "Primary Skills",
   content: [
-    { what: "Python3", logo: <FaPython /> },
-    { what: "Javascript", logo: <FaJsSquare /> },
-    { what: "React", logo: <FaReact /> }
+    { what: "Python3", logo: pythonIcon },
+    { what: "Javascript", logo: javascriptIcon },
+    { what: "React", logo: reactIcon }
   ],
   japaneseTitle: "専門技術"
 };

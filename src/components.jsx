@@ -1,23 +1,28 @@
 import React from "react";
-import { IconContext } from "react-icons";
-// import { FaQrcode } from "react-icons/fa";
+import ReactCardFlip from "react-card-flip";
 import smallPic from "./picture-small.jpg";
 import medPic from "./picture-medium.jpg";
 import largePic from "./picture-large.jpg";
+import casualPic from "./casualpicture.jpg";
 import americanFlag from "./americanFlag.png";
 import japaneseFlag from "./japaneseFlag.png";
 
 const smallMax = 481;
 const medMax = 1025;
 const listItemPadding = "9px";
-const linkStyles = {
-  textDecoration: "none"
-};
+
+const CAVEAT = "Caveat";
+const SATISFY = "Satisfy";
+const GARAMOND = "EB Garamond";
+const NOTOSERIF = "Noto Serif JP";
+const ENGLISH = "English";
+const MYNAME = "Wandal Cooper";
+const MYJAPANESENAME = "クーパー　ワンダル";
 
 const getFont = lang => {
-  const japaneseFont = { fontFamily: "Noto Serif JP" };
-  const englishFont = { fontFamily: "Caveat, Satisfy" };
-  if (lang === "English") {
+  const japaneseFont = { fontFamily: NOTOSERIF };
+  const englishFont = { fontFamily: `${CAVEAT}, ${SATISFY}` };
+  if (lang === ENGLISH) {
     return englishFont;
   } else {
     return japaneseFont;
@@ -25,17 +30,22 @@ const getFont = lang => {
 };
 
 const ProfileBar = props => {
-  const { screenW, changeLanguage, language } = props;
-  const myName =
-    language === "English" ? "Wandal Cooper" : "クーパー　ワンダル";
+  const {
+    screenW,
+    changeLanguage,
+    language,
+    casualPicFlipped,
+    flipPic
+  } = props;
+  const myName = language === ENGLISH ? MYNAME : MYJAPANESENAME;
 
   const image =
     screenW < smallMax ? smallPic : screenW < medMax ? medPic : largePic;
 
   const barHeight =
     screenW < smallMax ? "80px" : screenW < medMax ? "100%" : "100%";
-  const lang = language === "English" ? "日本語" : "English";
-  const flag = lang === "English" ? americanFlag : japaneseFlag;
+  const lang = language === ENGLISH ? "日本語" : ENGLISH;
+  const flag = lang === ENGLISH ? americanFlag : japaneseFlag;
 
   const nameStyles = {
     display: "flex",
@@ -43,11 +53,12 @@ const ProfileBar = props => {
     alignItems: "center",
     textAlign: "center"
   };
+
   const engjapStyles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontFamily: "Noto Serif JP"
+    fontFamily: NOTOSERIF
   };
 
   let imageStyles = { display: "flex", overflow: "hidden" };
@@ -62,13 +73,34 @@ const ProfileBar = props => {
 
   let pictureStyles = {};
   if (image === largePic) {
-    pictureStyles.width = "200px";
+    pictureStyles.width = "250px";
   }
 
   return (
     <div className="profilebar" style={{ height: barHeight }}>
-      <div className="picture" sytle={pictureStyles}>
-        <img src={image} alt="profile pic" style={imageStyles} />
+      <div className="picture" style={pictureStyles}>
+        {screenW >= medMax ? (
+          <ReactCardFlip isFlipped={casualPicFlipped}>
+            <React.Fragment>
+              <img
+                src={image}
+                alt="profile pic"
+                style={imageStyles}
+                onClick={() => flipPic()}
+              />
+            </React.Fragment>
+            <React.Fragment>
+              <img
+                src={casualPic}
+                alt="profile pic"
+                style={imageStyles}
+                onClick={() => flipPic()}
+              />
+            </React.Fragment>
+          </ReactCardFlip>
+        ) : (
+          <img src={image} alt="profile pic" style={imageStyles} />
+        )}
       </div>
       <div className="name" style={nameStyles}>
         {myName}
@@ -98,14 +130,21 @@ const ProfileBar = props => {
 
 const Description = props => {
   const { title, content, language, japaneseTitle, japaneseContent } = props;
+  const fontFamily = language === ENGLISH ? GARAMOND : NOTOSERIF;
 
   return (
     <div className="description">
       <h3 style={getFont(language)}>
-        {language === "English" ? title : japaneseTitle}
+        {language === ENGLISH ? title : japaneseTitle}
       </h3>
-      <p style={{ textAlign: "center", padding: listItemPadding }}>
-        {language === "English" ? content : japaneseContent}
+      <p
+        style={{
+          textAlign: "center",
+          padding: listItemPadding,
+          fontFamily: fontFamily
+        }}
+      >
+        {language === ENGLISH ? content : japaneseContent}
       </p>
     </div>
   );
@@ -117,14 +156,14 @@ const Projects = props => {
   const projectStyles = { padding: listItemPadding, textAlign: "center" };
   const aTagStyles = {
     textDecoration: "none",
-    fontFamily: language === "English" ? "Tahoma" : "Noto Serif JP"
+    fontFamily: language === ENGLISH ? GARAMOND : NOTOSERIF
   };
   let projects = [];
   for (let project of content) {
     projects.push(
       <div key={projects.length} style={projectStyles}>
         <a href={project.url} style={aTagStyles}>
-          {language === "English" ? project.what : project.japaneseWhat}
+          {language === ENGLISH ? project.what : project.japaneseWhat}
         </a>
       </div>
     );
@@ -132,7 +171,7 @@ const Projects = props => {
   return (
     <div className="projects">
       <h3 style={getFont(language)}>
-        {language === "English" ? title : japaneseTitle}
+        {language === ENGLISH ? title : japaneseTitle}
       </h3>
       {projects}
     </div>
@@ -151,9 +190,7 @@ const Skills = props => {
       >
         <div className="skillitem">{skill.what}</div>
         <div className="skillitem">
-          <IconContext.Provider value={{ color: "blue", size: "1.5em" }}>
-            {skill.logo}
-          </IconContext.Provider>
+          <img className="skilllogo" src={skill.logo} alt="logo pic"></img>
         </div>
       </div>
     );
@@ -162,37 +199,17 @@ const Skills = props => {
   return (
     <div className="skills">
       <h3 style={getFont(language)}>
-        {language === "English" ? title : japaneseTitle}
+        {language === ENGLISH ? title : japaneseTitle}
       </h3>
       {skills}
     </div>
   );
 };
 
-//not used yet
-// const Experiences = props => {
-// const { title, content, language } = props;
-// console.log("Experiences: ", language);
-// return (
-// <div className="experiences">
-{
-  /* <h3 style={getFont(language)}>{title}</h3> */
-}
-{
-  /* {content} */
-}
-{
-  /* </div> */
-}
-// );
-// };
-
 const Education = props => {
-  //   console.log("Education: ", props);
   let { title, content, screenW, language } = props;
-  title = language === "English" ? "Education" : "学歴";
+  title = language === ENGLISH ? "Education" : "学歴";
   let schools = [];
-  // if the size is small, include the years
 
   const headerStyles = {
     display: "flex",
@@ -201,10 +218,10 @@ const Education = props => {
   };
 
   const subHeaders = {
-    name: language === "English" ? "School" : "学",
-    location: language === "English" ? "Location" : "都市",
+    name: language === ENGLISH ? "School" : "学",
+    location: language === ENGLISH ? "Location" : "都市",
     date:
-      language === "English" ? (screenW < medMax ? "Finished" : "Dates") : "年"
+      language === ENGLISH ? (screenW < medMax ? "Finished" : "Dates") : "年"
   };
 
   for (let item of content) {
@@ -255,13 +272,20 @@ const Certifications = props => {
     padding: listItemPadding,
     textAlign: "center"
   };
-  title = language === "English" ? "Certifications" : "免許・資格";
+
+  const aTagStyles = {
+    textDecoration: "none",
+    fontFamily: language === ENGLISH ? GARAMOND : NOTOSERIF
+  };
+
+  title = language === ENGLISH ? "Certifications" : "免許・資格";
   let certs = [];
   for (let cert of content) {
     // console.log(cert);
     certs.push(
-      <div key={certs.length} style={certStyles}>
-        <a href={cert.url} style={linkStyles}>
+      <div className="certification" key={certs.length} style={certStyles}>
+        {/* <a href={cert.url} style={linkStyles}> */}
+        <a href={cert.url} style={aTagStyles}>
           {cert.what}
         </a>
       </div>
@@ -275,12 +299,4 @@ const Certifications = props => {
   );
 };
 
-export {
-  ProfileBar,
-  Description,
-  Projects,
-  Skills,
-  // Experiences,
-  Education,
-  Certifications
-};
+export { ProfileBar, Description, Projects, Skills, Education, Certifications };

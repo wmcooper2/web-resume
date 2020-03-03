@@ -6,7 +6,6 @@ import {
   Description,
   Projects,
   Skills,
-  // Experiences,
   Education,
   Certifications
 } from "./components";
@@ -14,17 +13,24 @@ import {
   description,
   projects,
   skills,
-  // experiences,
   education,
   certifications
 } from "./data";
+const ENGLISH = "English";
+const JAPANESE = "Japanese";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { screenW: 0, screenH: 0, language: "English" };
+    this.state = {
+      screenW: 0,
+      screenH: 0,
+      language: ENGLISH,
+      casualPicFlipped: false
+    };
     this.updateScreenSize = this.updateScreenSize.bind(this);
     this.changeLanguage = this.changeLanguage.bind(this);
+    this.flipPic = this.flipPic.bind(this);
   }
 
   componentDidMount() {
@@ -44,20 +50,28 @@ class App extends React.Component {
   }
 
   changeLanguage = () => {
-    let lang = this.state.language === "English" ? "Japanese" : "English";
-    // console.log("change language: ", lang);
+    let lang = this.state.language === ENGLISH ? JAPANESE : ENGLISH;
     this.setState({ language: lang });
+  };
+
+  flipPic = () => {
+    this.setState(() => {
+      return { casualPicFlipped: !this.state.casualPicFlipped };
+    });
   };
 
   render() {
     return (
       <div className="resume">
-        <ProfileBar {...this.state} changeLanguage={this.changeLanguage} />
+        <ProfileBar
+          {...this.state}
+          changeLanguage={this.changeLanguage}
+          flipPic={this.flipPic}
+        />
         <div className="details">
           <Description {...description} {...this.state} />
           <Projects {...projects} {...this.state} />
           <Skills {...skills} {...this.state} />
-          {/* <Experiences {...experiences} /> */}
           <Education {...education} {...this.state} />
           <Certifications {...certifications} {...this.state} />
         </div>
