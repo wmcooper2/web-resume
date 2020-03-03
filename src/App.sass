@@ -11,20 +11,17 @@ $tableHeaderColor: #A0B9FF
 $linkColor: black
 $smallHeaderHeight: 80px
 $medHeaderWidth: 150px
+$fancyFonts: Satisfy, Caveat
+$japaneseFont: "Noto Serif JP"
 // for development
 // *
     // border: 1px solid black
 
 h2, h3
     text-align: center
-    font-family: Tahoma, Arial, "Times New Roman"
+    font-family: $fancyFonts, Tahoma, Arial, "Times New Roman"
     padding: 6px
     background-color: $headerColor
-
-a
-    color: $linkColor
-    text-decoration: none
-    border: none
 
 a:hover
     color: $linkColor
@@ -39,8 +36,10 @@ a:hover
     grid-area: "picture"
 .name
     grid-area: "name"
+    font-family: $fancyFonts, $japaneseFont
 .engjap
     grid-area: "engjap"
+    transition-duration: 0.3s
 .qrcode
     grid-area: "qrcode"
 .skills
@@ -71,17 +70,27 @@ a:hover
         display: grid
         color: $profileBarTextColor
         background-color: $profileBarColor
-        grid-template-columns: 1fr 2fr 1fr
+        grid-template-columns: 1fr 3fr 2fr
         grid-template-areas: "picture name engjap"
 
     img
         height: $smallHeaderHeight
         border-radius: 3px
 
+    img.flag
+        width: 40px
+        height: 40px
+
     .qrcode
         display: flex
         justify-content: center
         align-items: center
+
+    .engjap
+        order: 3
+    .engjap:hover
+        transition-duration: 0.3s
+        transform: scale(1.1,1.1)
 
     .skill
         display: flex
@@ -129,6 +138,10 @@ a:hover
         width: $medHeaderWidth
         border-radius: 3px
 
+    img.flag
+        width: 40px
+        height: 40px
+
     .qrcode
         display: flex
         justify-content: center
@@ -141,7 +154,11 @@ a:hover
     .qrcode
         order: 2
     .engjap
+        margin-top: 10px
         order: 3
+    .engjap:hover
+        transition-duration: 0.3s
+        transform: scale(1.1,1.1)
 
     .skill
         display: flex
@@ -190,6 +207,10 @@ a:hover
         max-width: 80%
         border-radius: 3px
 
+    img.flag
+        width: 40px
+        height: 40px
+
     .qrcode
         display: flex
         justify-content: center
@@ -202,7 +223,11 @@ a:hover
     .qrcode
         order: 2
     .engjap
+        margin-top: 10px
         order: 3
+    .engjap:hover
+        transition-duration: 0.3s
+        transform: scale(1.1,1.1)
 
     .skill
         display: flex

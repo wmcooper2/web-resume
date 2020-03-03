@@ -4,28 +4,40 @@ import { IconContext } from "react-icons";
 import smallPic from "./picture-small.jpg";
 import medPic from "./picture-medium.jpg";
 import largePic from "./picture-large.jpg";
+import americanFlag from "./americanFlag.png";
+import japaneseFlag from "./japaneseFlag.png";
 
 const smallMax = 481;
 const medMax = 1025;
 const listItemPadding = "9px";
-// const headerPadding = "6px";
+const linkStyles = {
+  textDecoration: "none"
+};
+
+const getFont = lang => {
+  const japaneseFont = { fontFamily: "Noto Serif JP" };
+  const englishFont = { fontFamily: "Caveat, Satisfy" };
+  if (lang === "English") {
+    return englishFont;
+  } else {
+    return japaneseFont;
+  }
+};
 
 const ProfileBar = props => {
-  //   console.log("ProfileBar: ", props);
   const { screenW, changeLanguage, language } = props;
   const myName =
     language === "English" ? "Wandal Cooper" : "クーパー　ワンダル";
 
   const image =
     screenW < smallMax ? smallPic : screenW < medMax ? medPic : largePic;
+
   const barHeight =
     screenW < smallMax ? "80px" : screenW < medMax ? "100%" : "100%";
   const lang = language === "English" ? "日本語" : "English";
-  //   const nameSize =
-  // screenW < smallMax ? "medium" : screenW < medMax ? "x-large" : "x-large";
+  const flag = lang === "English" ? americanFlag : japaneseFlag;
 
   const nameStyles = {
-    // fontSize: nameSize,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -34,13 +46,16 @@ const ProfileBar = props => {
   const engjapStyles = {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    fontFamily: "Noto Serif JP"
   };
 
   let imageStyles = { display: "flex", overflow: "hidden" };
+  imageStyles.boxShadow = "2px 2px 2px 2px rgba(0, 0, 0, 0.2)";
   if (image === medPic) {
     imageStyles.margin = "auto auto";
   }
+
   if (image === largePic) {
     imageStyles.margin = "auto auto";
   }
@@ -49,7 +64,6 @@ const ProfileBar = props => {
   if (image === largePic) {
     pictureStyles.width = "200px";
   }
-  //   const iconStyles = { color: "white", size: "3em" };
 
   return (
     <div className="profilebar" style={{ height: barHeight }}>
@@ -65,6 +79,13 @@ const ProfileBar = props => {
         onClick={() => changeLanguage()}
       >
         {lang}
+        <img
+          className="flag"
+          src={flag}
+          alt="flag"
+          width="40px"
+          height="40px"
+        ></img>
       </div>
       {/* <div className="qrcode"> */}
       {/* <IconContext.Provider value={iconStyles}> */}
@@ -76,19 +97,13 @@ const ProfileBar = props => {
 };
 
 const Description = props => {
-  //   console.log("Description: ", props);
-  const {
-    title,
-    content,
-    // screenW,
-    language,
-    japaneseTitle,
-    japaneseContent
-  } = props;
+  const { title, content, language, japaneseTitle, japaneseContent } = props;
 
   return (
     <div className="description">
-      <h3>{language === "English" ? title : japaneseTitle}</h3>
+      <h3 style={getFont(language)}>
+        {language === "English" ? title : japaneseTitle}
+      </h3>
       <p style={{ textAlign: "center", padding: listItemPadding }}>
         {language === "English" ? content : japaneseContent}
       </p>
@@ -100,11 +115,15 @@ const Description = props => {
 const Projects = props => {
   const { title, content, language, japaneseTitle } = props;
   const projectStyles = { padding: listItemPadding, textAlign: "center" };
+  const aTagStyles = {
+    textDecoration: "none",
+    fontFamily: language === "English" ? "Tahoma" : "Noto Serif JP"
+  };
   let projects = [];
   for (let project of content) {
     projects.push(
       <div key={projects.length} style={projectStyles}>
-        <a href={project.url}>
+        <a href={project.url} style={aTagStyles}>
           {language === "English" ? project.what : project.japaneseWhat}
         </a>
       </div>
@@ -112,7 +131,9 @@ const Projects = props => {
   }
   return (
     <div className="projects">
-      <h3>{language === "English" ? title : japaneseTitle}</h3>
+      <h3 style={getFont(language)}>
+        {language === "English" ? title : japaneseTitle}
+      </h3>
       {projects}
     </div>
   );
@@ -140,21 +161,31 @@ const Skills = props => {
 
   return (
     <div className="skills">
-      <h3>{language === "English" ? title : japaneseTitle}</h3>
+      <h3 style={getFont(language)}>
+        {language === "English" ? title : japaneseTitle}
+      </h3>
       {skills}
     </div>
   );
 };
 
-const Experiences = props => {
-  const { title, content } = props;
-  return (
-    <div className="experiences">
-      <h3>{title}</h3>
-      {content}
-    </div>
-  );
-};
+//not used yet
+// const Experiences = props => {
+// const { title, content, language } = props;
+// console.log("Experiences: ", language);
+// return (
+// <div className="experiences">
+{
+  /* <h3 style={getFont(language)}>{title}</h3> */
+}
+{
+  /* {content} */
+}
+{
+  /* </div> */
+}
+// );
+// };
 
 const Education = props => {
   //   console.log("Education: ", props);
@@ -169,8 +200,14 @@ const Education = props => {
     padding: listItemPadding
   };
 
+  const subHeaders = {
+    name: language === "English" ? "School" : "学",
+    location: language === "English" ? "Location" : "都市",
+    date:
+      language === "English" ? (screenW < medMax ? "Finished" : "Dates") : "年"
+  };
+
   for (let item of content) {
-    // console.log(item);
     schools.push(
       <div
         className="school"
@@ -194,12 +231,16 @@ const Education = props => {
 
   return (
     <div className="education">
-      <h3>{title}</h3>
+      <h3 style={getFont(language)}>{title}</h3>
       <div className="schoolsheader" style={headerStyles}>
-        <span className="schoolname">School</span>
-        <span className="schoollocation">Location</span>
-        <span className="schooldate">
-          {screenW < medMax ? "Finished" : "Dates"}
+        <span style={getFont(language)} className="schoolname">
+          {subHeaders.name}
+        </span>
+        <span style={getFont(language)} className="schoollocation">
+          {subHeaders.location}
+        </span>
+        <span style={getFont(language)} className="schooldate">
+          {subHeaders.date}
         </span>
       </div>
       {schools.reverse()}
@@ -220,13 +261,15 @@ const Certifications = props => {
     // console.log(cert);
     certs.push(
       <div key={certs.length} style={certStyles}>
-        <a href={cert.url}>{cert.what}</a>
+        <a href={cert.url} style={linkStyles}>
+          {cert.what}
+        </a>
       </div>
     );
   }
   return (
     <div className="certifications">
-      <h3>{title}</h3>
+      <h3 style={getFont(language)}>{title}</h3>
       {certs.reverse()}
     </div>
   );
@@ -237,7 +280,7 @@ export {
   Description,
   Projects,
   Skills,
-  Experiences,
+  // Experiences,
   Education,
   Certifications
 };
