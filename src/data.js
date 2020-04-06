@@ -8,11 +8,10 @@ const description = {
     "I'm a self-taught developer with 5 years experience. My primary strengths are Python and Javascript. I enjoy making online games and tools for TEFL teachers. Visit the links in 'My Web Presence' section to see what I've done so far. I'm looking for my first professional software position, so feel free to pass around my information to anyone who may be interested. Thanks for taking the time to review my work.",
   japaneseTitle: "求人情報",
   japaneseContent:
-    "私は独学で5年の経験を持つプログラマーです。 私の主な強みは、PythonとJavascriptです。 TEFL教師向けのオンラインゲームやツールを作るのは楽しいです。 [マイWebプレゼンス]セクションのリンクにアクセスして、これまでに行ったことを確認します。 私は私の最初のプロのソフトウェアのポジションを探していますので、興味のある人に気軽に情報を伝えてください。 私の作品をレビューしてくれてありがとう。"
+    "私は独学で5年の経験を持つプログラマーです。 私の主な強みは、PythonとJavascriptです。 TEFL教師向けのオンラインゲームやツールを作るのは楽しいです。 [マイWebプレゼンス]セクションのリンクにアクセスして、これまでに行ったことを確認します。 私は私の最初のプロのソフトウェアのポジションを探していますので、興味のある人に気軽に情報を伝えてください。 私の作品をレビューしてくれてありがとう。",
 };
 
-//github projects
-const projects = {
+const webPresence = {
   title: "My Web Presence",
   japaneseTitle: "ウェブプレッスンス",
   content: [
@@ -20,27 +19,33 @@ const projects = {
       what: "Project Site",
       japaneseWhat: "プロジェクトサイト（自分の）",
       url: "https://www.wmcooper2.com/",
-      logo: ""
+      logo: "",
+    },
+    {
+      what: "Tokyo Python",
+      japaneseWhat: "Tokyo Python",
+      url: "https://tokyopython.com",
+      logo: "",
     },
     {
       what: "TEFL Assistant",
       japaneseWhat: "TEFLアシスタント（自分の）",
       url: "https://www.teflassistant.com",
-      logo: ""
-    },
-    {
-      what: "GitHub",
-      japaneseWhat: "GitHub",
-      url: "https://github.com/wmcooper2",
-      logo: ""
+      logo: "",
     },
     {
       what: "LinkedIn",
       japaneseWhat: "LinkedIn",
       url: "https://www.linkedin.com/in/wandalcooper/",
-      logo: ""
-    }
-  ]
+      logo: "",
+    },
+    {
+      what: "GitHub",
+      japaneseWhat: "GitHub",
+      url: "https://github.com/wmcooper2",
+      logo: "",
+    },
+  ],
 };
 
 // tech used
@@ -49,15 +54,15 @@ const skills = {
   content: [
     { what: "Python3", logo: pythonIcon },
     { what: "Javascript", logo: javascriptIcon },
-    { what: "React", logo: reactIcon }
+    { what: "React", logo: reactIcon },
   ],
-  japaneseTitle: "専門技術"
+  japaneseTitle: "専門技術",
 };
 
 // work experience
 const experiences = {
   title: "Experiences",
-  content: ["expereince 1", "experience 2"]
+  content: ["expereince 1", "experience 2"],
 };
 
 const education = {
@@ -69,7 +74,7 @@ const education = {
       where: "Sacramento, CA",
       shortWhere: "Sacramento, CA",
       longWhere: "Sacramento, California",
-      when: [new Date(2001, 6), new Date(2002, 10)]
+      when: [new Date(2001, 6), new Date(2002, 10)],
     },
     {
       shortWhat: "East Nicolaus HS",
@@ -77,7 +82,7 @@ const education = {
       where: "Trowbridge, CA",
       shortWhere: "Trowbridge, CA",
       longWhere: "Trowbridge, California",
-      when: [new Date(2002, 10), new Date(2005, 6)]
+      when: [new Date(2002, 10), new Date(2005, 6)],
     },
     {
       shortWhat: "UTI",
@@ -85,7 +90,7 @@ const education = {
       where: "Avondale, AZ",
       shortWhere: "Avondale, AZ",
       longWhere: "Avondale, Arizona",
-      when: [new Date(2005, 6), new Date(2006, 7)]
+      when: [new Date(2005, 6), new Date(2006, 7)],
     },
     {
       shortWhat: "UTI",
@@ -93,7 +98,7 @@ const education = {
       where: "Sacramento, CA",
       shortWhere: "Sacramento, CA",
       longWhere: "Sacramento, Calfornia",
-      when: [new Date(2006, 7), new Date(2007, 6)]
+      when: [new Date(2006, 7), new Date(2007, 6)],
     },
     {
       shortWhat: "NNPTC",
@@ -101,7 +106,7 @@ const education = {
       where: "Goose Creek, SC",
       shortWhere: "Goose Creek, SC",
       longWhere: "Goose Creek, South Carolina",
-      when: [new Date(2007, 12), new Date(2008, 10)]
+      when: [new Date(2007, 12), new Date(2008, 10)],
     },
     {
       shortWhat: "NPT",
@@ -109,7 +114,7 @@ const education = {
       where: "Ballston Spa, NY",
       shortWhere: "Ballston Spa, NY",
       longWhere: "Ballston Spa, New York",
-      when: [new Date(2008, 10), new Date(2009, 5)]
+      when: [new Date(2008, 10), new Date(2009, 5)],
     },
     {
       shortWhat: "ARC",
@@ -117,7 +122,7 @@ const education = {
       where: "Sacramento, CA",
       shortWhere: "Sacramento, CA",
       longWhere: "Sacramento, California",
-      when: [new Date(2010, 5), new Date(2011, 6)]
+      when: [new Date(2010, 5), new Date(2011, 6)],
     },
     {
       shortWhat: "DeVry",
@@ -125,9 +130,9 @@ const education = {
       where: "Elk Grove, CA",
       shortWhere: "Elk Grove, CA",
       longWhere: "Elk Grove, California",
-      when: [new Date(2012, 2), new Date(2014, 8)]
-    }
-  ]
+      when: [new Date(2012, 2), new Date(2014, 8)],
+    },
+  ],
 };
 
 const certifications = {
@@ -137,56 +142,56 @@ const certifications = {
       where: "MITx",
       what: "Introduction to Computer Science and Programming Using Python",
       url:
-        "https://courses.edx.org/certificates/4117ecd2c2ee46a0a39e7622d71e93b1"
+        "https://courses.edx.org/certificates/4117ecd2c2ee46a0a39e7622d71e93b1",
     },
     {
       where: "Free Code Camp",
       what: "Responsive Web Design",
       url:
-        "https://www.freecodecamp.org/certification/wmcooper2/responsive-web-design"
+        "https://www.freecodecamp.org/certification/wmcooper2/responsive-web-design",
     },
     {
       where: "Free Code Camp",
       what: "Javascript Algorithms and Data Structures",
       url:
-        "https://www.freecodecamp.org/certification/wmcooper2/javascript-algorithms-and-data-structures"
+        "https://www.freecodecamp.org/certification/wmcooper2/javascript-algorithms-and-data-structures",
     },
     {
       where: "Free Code Camp",
       what: "Front End Libraries",
       url:
-        "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries"
+        "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
     },
     {
       where: "Free Code Camp",
       what: "Data Visualization",
       url:
-        "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries"
+        "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
     },
     {
       where: "Free Code Camp",
       what: "APIs and Microservices",
       url:
-        "https://www.freecodecamp.org/certification/wmcooper2/apis-and-microservices"
+        "https://www.freecodecamp.org/certification/wmcooper2/apis-and-microservices",
     },
     {
       where: "International TEFL Academy",
       what: "TEFL Certificate",
-      url: ""
+      url: "",
     },
     {
-      where: "",
+      where: "Tokyo, Japan",
       what: "JLPT N3",
-      url: ""
-    }
-  ]
+      url: "",
+    },
+  ],
 };
 
 export {
   description,
-  projects,
+  webPresence,
   skills,
   experiences,
   education,
-  certifications
+  certifications,
 };

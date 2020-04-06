@@ -1,23 +1,20 @@
 import React from "react";
 import "./App.sass";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  ProfileBar,
-  Description,
-  Projects,
-  Skills,
-  Education,
-  Certifications
-} from "./components";
+import ProfileBar from "./components/profilebar";
+import Description from "./components/description";
+import WebPresence from "./components/webpresence";
+import Skills from "./components/skills";
+import Education from "./components/education";
+import Certifications from "./components/certifications";
 import {
   description,
-  projects,
+  webPresence,
   skills,
   education,
-  certifications
+  certifications,
 } from "./data";
-const ENGLISH = "English";
-const JAPANESE = "Japanese";
+import { ENGLISH, JAPANESE } from "./components/utilities_constants.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +23,7 @@ class App extends React.Component {
       screenW: 0,
       screenH: 0,
       language: ENGLISH,
-      casualPicFlipped: false
+      casualPicFlipped: false,
     };
     this.updateScreenSize = this.updateScreenSize.bind(this);
     this.changeLanguage = this.changeLanguage.bind(this);
@@ -45,7 +42,7 @@ class App extends React.Component {
   updateScreenSize() {
     this.setState({
       screenW: window.innerWidth,
-      screenH: window.innerHeight
+      screenH: window.innerHeight,
     });
   }
 
@@ -70,7 +67,7 @@ class App extends React.Component {
         />
         <div className="details">
           <Description {...description} {...this.state} />
-          <Projects {...projects} {...this.state} />
+          <WebPresence {...webPresence} {...this.state} />
           <Skills {...skills} {...this.state} />
           <Education {...education} {...this.state} />
           <Certifications {...certifications} {...this.state} />

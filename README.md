@@ -1,3 +1,3 @@
 ### Notes
-* renamed build/ to resume/
-* put resume/ into the home dir of PORTFOLIO lightsail instance.
+* put build/ into resume/ of the home dir of PORTFOLIO lightsail instance.
+* should look like: $HOME/resume/build/
