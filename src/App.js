@@ -1,29 +1,24 @@
 import React from "react";
 import "./App.sass";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ProfileBar from "./components/profilebar";
-import Description from "./components/description";
-import WebPresence from "./components/webpresence";
-import Skills from "./components/skills";
+import Name from "./components/name";
+import ProfessionalExperience from "./components/professionalexperience";
+import CareerProfile from "./components/careerprofile";
 import Education from "./components/education";
 import Certifications from "./components/certifications";
 import {
   description,
-  webPresence,
-  skills,
+  professionalExperience,
   education,
   certifications,
 } from "./data";
-import { ENGLISH, JAPANESE } from "./components/utilities_constants.js";
+import { ENGLISH, JAPANESE } from "./constants.js";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      screenW: 0,
-      screenH: 0,
       language: ENGLISH,
-      casualPicFlipped: false,
     };
     this.updateScreenSize = this.updateScreenSize.bind(this);
     this.changeLanguage = this.changeLanguage.bind(this);
@@ -60,18 +55,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="resume">
-        <ProfileBar
-          {...this.state}
-          changeLanguage={this.changeLanguage}
-          flipPic={this.flipPic}
+        <Name changeLanguage={this.changeLanguage} lang={this.state.language} />
+        <CareerProfile data={description} lang={this.state.language} />
+        <ProfessionalExperience
+          data={professionalExperience}
+          lang={this.state.language}
         />
-        <div className="details">
-          <Description {...description} {...this.state} />
-          <WebPresence {...webPresence} {...this.state} />
-          <Skills {...skills} {...this.state} />
-          <Education {...education} {...this.state} />
-          <Certifications {...certifications} {...this.state} />
-        </div>
+        <Education data={education} lang={this.state.language} />
+        <Certifications data={certifications} lang={this.state.language} />
       </div>
     );
   }

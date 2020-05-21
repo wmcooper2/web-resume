@@ -1,67 +1,52 @@
 import React from "react";
 import {
-  getFont,
   ENGLISH,
-  MEDMAX,
-  LIST_ITEM_PADDING,
-} from "./utilities_constants.js";
+  ENG_EDU,
+  JAP_EDU,
+  ENG_SCHOOL,
+  JAP_SCHOOL,
+  ENG_LOCATION,
+  JAP_LOCATION,
+  ENG_YEAR,
+  JAP_YEAR,
+} from "../constants.js";
 
 const Education = (props) => {
-  let { title, content, screenW, language } = props;
-  title = language === ENGLISH ? "Education" : "学歴";
-  let schools = [];
-
-  const headerStyles = {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: LIST_ITEM_PADDING,
-  };
+  const { data, lang } = props;
+  const { content } = data;
+  const title = lang === ENGLISH ? ENG_EDU : JAP_EDU;
 
   const subHeaders = {
-    name: language === ENGLISH ? "School" : "学",
-    location: language === ENGLISH ? "Location" : "都市",
-    date:
-      language === ENGLISH ? (screenW < MEDMAX ? "Finished" : "Dates") : "年",
+    name: lang === ENGLISH ? ENG_SCHOOL : JAP_SCHOOL,
+    location: lang === ENGLISH ? ENG_LOCATION : JAP_LOCATION,
+    date: lang === ENGLISH ? ENG_YEAR : JAP_YEAR,
   };
 
-  for (let item of content) {
+  let schools = [];
+  content.forEach((school) => {
     schools.push(
-      <div
-        className="school"
-        key={schools.length}
-        style={{ padding: LIST_ITEM_PADDING }}
-      >
-        <span className="schoolname">
-          {screenW >= MEDMAX ? item.longWhat : item.shortWhat}
-        </span>
-        <span className="schoollocation">
-          {screenW >= MEDMAX ? item.longWhere : item.shortWhere}
-        </span>
-        <span className="schooldate">
-          {screenW >= MEDMAX
-            ? `${item.when[0].getFullYear()} - ${item.when[1].getFullYear()}`
-            : item.when[1].getFullYear()}
-        </span>
-      </div>
+      <tr key={schools.length}>
+        <td className="schoolname">{school.longName}</td>
+        <td className="schoollocation">{school.location}</td>
+        <td className="schooldate">{school.year[1].getFullYear()}</td>
+      </tr>
     );
-  }
+  });
 
   return (
-    <div className="education">
-      <h3 style={getFont(language)}>{title}</h3>
-      <div className="schoolsheader" style={headerStyles}>
-        <span style={getFont(language)} className="schoolname">
-          {subHeaders.name}
-        </span>
-        <span style={getFont(language)} className="schoollocation">
-          {subHeaders.location}
-        </span>
-        <span style={getFont(language)} className="schooldate">
-          {subHeaders.date}
-        </span>
-      </div>
-      {schools.reverse()}
-    </div>
+    <React.Fragment>
+      <h3>{title}</h3>
+      <table className="educationtable">
+        <thead>
+          <tr className="educationheader">
+            <td className="schoolname">{subHeaders.name}</td>
+            <td className="schoollocation">{subHeaders.location}</td>
+            <td className="schooldate">{subHeaders.date}</td>
+          </tr>
+        </thead>
+        <tbody>{schools}</tbody>
+      </table>
+    </React.Fragment>
   );
 };
 

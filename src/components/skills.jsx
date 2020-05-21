@@ -1,16 +1,12 @@
 import React from "react";
-import { getFont, ENGLISH, LIST_ITEM_PADDING } from "./utilities_constants.js";
+import { ENGLISH } from "./utilities_constants.js";
 
 const Skills = (props) => {
-  const { title, content, language, japaneseTitle } = props;
+  const { title, content, lang, japaneseTitle } = props;
   let skills = [];
   for (let skill of content) {
     skills.push(
-      <div
-        className="skill"
-        key={skills.length}
-        style={{ padding: LIST_ITEM_PADDING }}
-      >
+      <div className="skill" key={skills.length}>
         <div className="skillitem">{skill.what}</div>
         <div className="skillitem">
           <img className="skilllogo" src={skill.logo} alt="logo pic"></img>
@@ -21,9 +17,7 @@ const Skills = (props) => {
 
   return (
     <div className="skills">
-      <h3 style={getFont(language)}>
-        {language === ENGLISH ? title : japaneseTitle}
-      </h3>
+      <h3>{lang === ENGLISH ? title : japaneseTitle}</h3>
       {skills}
     </div>
   );

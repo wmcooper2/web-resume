@@ -1,42 +1,34 @@
 import React from "react";
-import {
-  getFont,
-  ENGLISH,
-  GARAMOND,
-  JAP_CERT_TITLE,
-  NOTOSERIF,
-  LIST_ITEM_PADDING,
-} from "./utilities_constants.js";
+import { ENGLISH, JAP_CERT_TITLE } from "../constants.js";
 
 const Certifications = (props) => {
-  let { title, content, language } = props;
-  const certStyles = {
-    textDecoration: "none",
-    padding: LIST_ITEM_PADDING,
-    textAlign: "center",
-  };
+  const { data, lang } = props;
+  const { content } = data;
 
-  const aTagStyles = {
-    textDecoration: "none",
-    fontFamily: language === ENGLISH ? GARAMOND : NOTOSERIF,
-  };
-
-  title = language === ENGLISH ? "Certifications" : JAP_CERT_TITLE;
+  const title = lang === ENGLISH ? "Certifications" : JAP_CERT_TITLE;
   let certs = [];
   for (let cert of content) {
     certs.push(
-      <div className="certification" key={certs.length} style={certStyles}>
-        <a href={cert.url} style={aTagStyles}>
-          {cert.what}
-        </a>
-      </div>
+      <tr>
+        <td className="certification" key={certs.length}>
+          <a href={cert.url}>{cert.what}</a>
+        </td>
+      </tr>
     );
   }
   return (
-    <div className="certifications">
-      <h3 style={getFont(language)}>{title}</h3>
-      {certs.reverse()}
-    </div>
+    <React.Fragment>
+      <h3>{title}</h3>
+      <table className="certifications">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Completed</td>
+          </tr>
+        </thead>
+        <tbody>{certs.reverse()}</tbody>
+      </table>
+    </React.Fragment>
   );
 };
 
