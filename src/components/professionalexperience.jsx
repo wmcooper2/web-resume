@@ -2,35 +2,37 @@ import React from "react";
 
 const ProfessionalExperience = (props) => {
   const { data } = props;
-  console.log("exp:", data);
 
   let jobs = [];
   data.forEach((job) => {
     jobs.push(
-      <tr className="jobheader" key={jobs.length}>
-        <td className="job">
-          <h6 className="jobcompany">{job.company}</h6>
-          <span className="joblocation">{job.location}</span>
-        </td>
-        <td className="jobyear">{job.year[1]}</td>
-      </tr>
+      <React.Fragment key={jobs.length}>
+        <div className="job">
+          <div class="jobheaderprefix">
+            <span className="companyname">{job.company}</span>
+            <span className="joblocation">{job.location}</span>
+          </div>
+          <span className="jobyear">
+            {job.year[0]} - {job.year[1]}
+          </span>
+        </div>
+        <div className="jobtitle">{job.jobTitle}</div>
+        <ul>
+          <li>{job.talkingPoints[0]}</li>
+          <li>{job.talkingPoints[1]}</li>
+          <li>{job.talkingPoints[2]}</li>
+          {job.talkingPoints[3] === null ? "" : <li>{job.talkingPoints[3]}</li>}
+        </ul>
+      </React.Fragment>
     );
   });
 
   return (
     <React.Fragment>
       <h2>Professional Experience</h2>
-      <table className="professionalexperience">
-        <tbody>{jobs}</tbody>
-      </table>
+      <div className="professionalexperience">{jobs}</div>
     </React.Fragment>
   );
 };
 
 export default ProfessionalExperience;
-
-// company: "Borderlink, Inc.",
-// location: "Tokyo, Japan.",
-// year: ["placeholder1", "placeholder2"],
-// jobTitle: "ALT",
-// talkingPoints: ["one", "two", "three", "four"],

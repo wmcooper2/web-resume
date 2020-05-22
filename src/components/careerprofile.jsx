@@ -7,10 +7,10 @@ const CareerProfile = (props) => {
 
   return (
     <React.Fragment>
-      <h3>{lang === ENGLISH ? title : japaneseTitle}</h3>
-      <p className="careerprofile">
+      <h2>{lang === ENGLISH ? title : japaneseTitle}</h2>
+      <div className="careerprofile">
         {lang === ENGLISH ? content : japaneseContent}
-      </p>
+      </div>
     </React.Fragment>
   );
 };

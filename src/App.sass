@@ -1,92 +1,70 @@
-$phoneMinWidth: 320px
-$phoneMaxWidth: 480px
-$tabletMinWidth: 768px
-$tabletMaxWidth: 1024px
-$profileBarColor: #2046F6
-$linkColor: #2046F6
-$profileBarTextColor: white
-$smallFont: 1em
-$medFont: 1.2em
-$darkHeaderColor: #7397FF
-$lightHeaderColor: #BBCCFF
-$tableHeaderColor: #A0B9FF  
-$smallHeaderHeight: 80px
-$medHeaderWidth: 150px
-$fancyFonts: Satisfy, Caveat
-$japaneseFont: "Noto Serif JP"
-$aTagHoverColor: #E5E5E5
-
 :root
-    max-width: 80vw
+    max-width: 210mm
     margin: auto auto
 
-@import "smallscreens.sass"
-@import "mediumscreens.sass"
-@import "largescreens.sass"
-
-h2, h3
+h2
     text-align: left
     margin: 1rem
     font-family: Arial, Tahoma
     padding: 0.5rem
     border-bottom: 0.1rem solid rgba(100,100,100,0.5)
+    margin-bottom: 0
 
 a:hover
     cursor: pointer
 
 header
+    display: flex
+    justify-content: space-evenly
     text-align: center
     font-size: 2rem
 
+button
+    display: inline
+
+ul
+    padding-left: 1rem
+
+li
+    margin-left: 1rem
+    // list-style-type: none
+
 .careerprofile,
 .webpresencelink,
-.educationtable,
+.education,
 .professionalexperience,
 .certifications
     text-align: left
-    margin: 2rem
+    margin: 0.5rem 2rem
+    width: 90%
 
 .flag
-    width: 2vw
-    height: 2vw
+    width: 2rem
+    height: 2rem
 
-.language
-    transition-duration: 0.3s
-    margin-top: 0.7rem
-    cursor: pointer
-
-.jobheader
+.job, .school, .cert
     display: flex
-    flex-direction: row
     justify-content: space-between
+    margin-bottom: 0
 
-.job
-    display: flex
-    flex-direction: row
+.jobheaderprefix, .schoolheaderprefix, .certheaderprefix
+    display: inline
 
-.educationheader
+.jobtitle
+    text-decoration: underline
+
+.companyname, .schoolname, .certname
+    font-size: 1.5rem
     font-weight: bold
 
-.school
-    display: flex
-    justify-content: space-between
+.joblocation, .schoollocation, .certlocation
+    font-size: 0.5rem
+    padding-top: 1rem
+    margin-left: 0.5rem
 
-.schoolname
-    width: 30%
+.jobyear, .schoolyear
+    padding-top: 0.6rem
 
-.schoollocation
-    width: 30%
-
-.schooldate
-    text-align: right
-    width: 5rem
-
-.skill
-    display: flex
-    justify-content: space-between
-    max-width: 80vh
-    margin: auto auto
-
-.skilllogo
-    max-width: 50px
-    max-height: 50px
+p.degree
+    margin-left: 2rem
+    margin-bottom: 0

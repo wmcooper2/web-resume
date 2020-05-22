@@ -16,36 +16,29 @@ const Education = (props) => {
   const { content } = data;
   const title = lang === ENGLISH ? ENG_EDU : JAP_EDU;
 
-  const subHeaders = {
-    name: lang === ENGLISH ? ENG_SCHOOL : JAP_SCHOOL,
-    location: lang === ENGLISH ? ENG_LOCATION : JAP_LOCATION,
-    date: lang === ENGLISH ? ENG_YEAR : JAP_YEAR,
-  };
-
   let schools = [];
   content.forEach((school) => {
     schools.push(
-      <tr key={schools.length}>
-        <td className="schoolname">{school.longName}</td>
-        <td className="schoollocation">{school.location}</td>
-        <td className="schooldate">{school.year[1].getFullYear()}</td>
-      </tr>
+      <React.Fragment key={schools.length}>
+        <div className="school">
+          <div class="schoolheaderprefix">
+            <span className="schoolname">{school.name}</span>
+            <span className="schoollocation">{school.location}</span>
+          </div>
+          <span className="schoolyear">{school.year}</span>
+        </div>
+
+        <a href={school.url}>
+          <p className="degree">{school.degree}</p>
+        </a>
+      </React.Fragment>
     );
   });
 
   return (
     <React.Fragment>
-      <h3>{title}</h3>
-      <table className="educationtable">
-        <thead>
-          <tr className="educationheader">
-            <td className="schoolname">{subHeaders.name}</td>
-            <td className="schoollocation">{subHeaders.location}</td>
-            <td className="schooldate">{subHeaders.date}</td>
-          </tr>
-        </thead>
-        <tbody>{schools}</tbody>
-      </table>
+      <h2>{title}</h2>
+      <div className="education">{schools}</div>
     </React.Fragment>
   );
 };

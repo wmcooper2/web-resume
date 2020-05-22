@@ -9,25 +9,20 @@ const Certifications = (props) => {
   let certs = [];
   for (let cert of content) {
     certs.push(
-      <tr>
-        <td className="certification" key={certs.length}>
-          <a href={cert.url}>{cert.what}</a>
-        </td>
-      </tr>
+      <div className="cert">
+        <div class="certheaderprefix">
+          <a href={cert.url}>
+            <span className="certname">{cert.name}</span>
+          </a>
+          <span className="certlocation">{cert.location}</span>
+        </div>
+      </div>
     );
   }
   return (
     <React.Fragment>
-      <h3>{title}</h3>
-      <table className="certifications">
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Completed</td>
-          </tr>
-        </thead>
-        <tbody>{certs.reverse()}</tbody>
-      </table>
+      <h2>{title}</h2>
+      <div className="certifications">{certs.reverse()}</div>
     </React.Fragment>
   );
 };

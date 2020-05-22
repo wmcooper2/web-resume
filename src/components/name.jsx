@@ -8,15 +8,15 @@ const Name = (props) => {
   const myName = lang === ENGLISH ? ENG_NAME : JAP_NAME;
 
   const language = lang === ENGLISH ? JAPANESE : ENGLISH;
-  const flag = lang === ENGLISH ? USA : JAPAN;
+  const flag = lang === ENGLISH ? JAPAN : USA;
 
   return (
     <header>
-      <span className="name">{myName}</span>
-      <span className="language" onClick={() => changeLanguage()}>
+      <h1 className="name">{myName}</h1>
+      <button className="language" onClick={() => changeLanguage()}>
         {language}
         <img className="flag" src={flag} alt="flag"></img>
-      </span>
+      </button>
     </header>
   );
 };

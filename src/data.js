@@ -50,20 +50,6 @@ const webPresence = {
       logo: "",
     },
 
-    // {
-    // what: "Tokyo Python",
-    // japaneseWhat: "Tokyo Python",
-    // url: "https://tokyopython.com",
-    // logo: "",
-    // },
-
-    // {
-    // what: "TEFL Assistant",
-    // japaneseWhat: "TEFLアシスタント（自分の）",
-    // url: "https://www.teflassistant.com",
-    // logo: "",
-    // },
-
     {
       what: "GitHub",
       japaneseWhat: "GitHub",
@@ -83,46 +69,70 @@ const webPresence = {
 const professionalExperience = [
   {
     company: "Borderlink, Inc.",
-    location: "Tokyo, Japan.",
-    year: ["placeholder1", "placeholder2"],
+    location: "Tokyo, Japan",
+    year: ["2017", "Present"],
     jobTitle: "ALT",
-    talkingPoints: ["one", "two", "three", "four"],
+    talkingPoints: [
+      "Developing software to assist in teaching English as a foreign language.",
+      "Developing lesson plans, worked with Japanese teachers to target difficult concepts in English learning.",
+      "Creating new games that the students could understand and enjoy.",
+      "Leading English lessons at elementary schools.",
+    ],
   },
 
   {
     company: "MorphoTrust USA",
-    location: "Tokyo, Japan.",
-    year: ["placeholder1", "placeholder2"],
-    jobTitle: "ALT",
-    talkingPoints: ["one", "two", "three", "four"],
+    location: "Sacramento, CA",
+    year: ["2015", "2017"],
+    jobTitle: "Machine Operator 1",
+    talkingPoints: [
+      "Protected customer’s personal information following NASPO International security guidelines.",
+      "Controlled the flow of batch jobs through a computer network.",
+      "Performed quality control inspections on drivers licenses for 5 states.",
+      null,
+    ],
   },
 
   {
     company: "Bubba Mac's Link Shack",
-    location: "Tokyo, Japan.",
-    year: ["placeholder1", "placeholder2"],
-    jobTitle: "ALT",
-    talkingPoints: ["one", "two", "three", "four"],
+    location: "Sacramento, CA",
+    year: ["2010", "2011"],
+    jobTitle: "Entrepreneur",
+    talkingPoints: [
+      "Developed well-researched plans and communicated my vision to the general public.",
+      "Developed my own computer-based record keeping and inventory control system.",
+      "Maintained detailed and accurate records for use in statistical analysis and planning.",
+      null,
+    ],
   },
 
   {
     company: "US Navy",
-    location: "Tokyo, Japan.",
-    year: ["placeholder1", "placeholder2"],
-    jobTitle: "ALT",
-    talkingPoints: ["one", "two", "three", "four"],
+    location: "Various locations",
+    year: ["2007", "2010"],
+    jobTitle: "Nuclear Machinist Mate",
+    talkingPoints: [
+      "Trusted with sensitive information and classified documents.",
+      "Pursued knowledge with a passion, studying 16 to 18 hours daily for weeks at a time.",
+      "Studied Nuclear propulsion.",
+      null,
+    ],
   },
 
   {
     company: "CTI Leasing",
-    location: "Tokyo, Japan.",
-    year: ["placeholder1", "placeholder2"],
-    jobTitle: "ALT",
-    talkingPoints: ["one", "two", "three", "four"],
+    location: "Laveen, AZ",
+    year: ["2005", "2006"],
+    jobTitle: "Maintenance Mechanic",
+    talkingPoints: [
+      "Performed preventive maintenance and repairs on class 8 vehicles, trailers and forklifts.",
+      "Maintained DOT compliance with vehicle repairs, troubleshooted problems with vehicles and inspected equipment regularly to maintain a high standard of operational safety.",
+      "Communicated technical information to customers who do not have a technical background.",
+      null,
+    ],
   },
 ];
 
-// tech used
 const skills = {
   title: "Primary Skills",
   content: [
@@ -133,86 +143,36 @@ const skills = {
   japaneseTitle: "専門技術",
 };
 
-// work experience
-const experiences = {
-  title: "Experiences",
-  content: ["expereince 1", "experience 2"],
-};
-
 const education = {
   title: "Education",
   content: [
     {
-      shortName: "DeVry",
-      longName: "DeVry University",
+      name: "DeVry University",
       location: "Elk Grove, CA",
-      shortWhere: "Elk Grove, CA",
-      longWhere: "Elk Grove, California",
-      year: [new Date(2012, 2), new Date(2014, 8)],
+      degree:
+        "B.S., Business Administration, Concentration in Entrepreneurship",
+      year: "2014",
+      url:
+        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/DeVryDegree.jpeg",
     },
 
     {
-      shortName: "UTI",
-      longName: "Universal Technical Institute",
-      location: "Sacramento, CA",
-      shortWhere: "Sacramento, CA",
-      longWhere: "Sacramento, Calfornia",
-      year: [new Date(2006, 7), new Date(2007, 6)],
+      name: "Naval Nuclear Power Training Command",
+      location: "Goose Creek, SC",
+      degree: "Certificate of Completion",
+      year: "2008",
+      url:
+        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/NNPTCcert.jpeg",
     },
 
-    // {
-    // shortName: "Foothill Farms HS",
-    // longName: "Foothill Farms High School",
-    // location: "Sacramento, CA",
-    // shortWhere: "Sacramento, CA",
-    // longWhere: "Sacramento, California",
-    // year: [new Date(2001, 6), new Date(2002, 10)],
-    // },
-
-    // {
-    // shortName: "East Nicolaus HS",
-    // longName: "East Nicolaus High School",
-    // location: "Trowbridge, CA",
-    // shortWhere: "Trowbridge, CA",
-    // longWhere: "Trowbridge, California",
-    // year: [new Date(2002, 10), new Date(2005, 6)],
-    // },
-
-    // {
-    // shortName: "UTI",
-    // longName: "Universal Technical Institute",
-    // location: "Avondale, AZ",
-    // shortWhere: "Avondale, AZ",
-    // longWhere: "Avondale, Arizona",
-    // year: [new Date(2005, 6), new Date(2006, 7)],
-    // },
-
-    // {
-    // shortName: "NNPTC",
-    // longName: "Naval Nuclear Power Training Command",
-    // location: "Goose Creek, SC",
-    // shortWhere: "Goose Creek, SC",
-    // longWhere: "Goose Creek, South Carolina",
-    // year: [new Date(2007, 12), new Date(2008, 10)],
-    // },
-
-    // {
-    // shortName: "NPT",
-    // longName: "Nuclear Prototype Training",
-    // location: "Ballston Spa, NY",
-    // shortWhere: "Ballston Spa, NY",
-    // longWhere: "Ballston Spa, New York",
-    // year: [new Date(2008, 10), new Date(2009, 5)],
-    // },
-
-    // {
-    // shortName: "ARC",
-    // longName: "American River College",
-    // location: "Sacramento, CA",
-    // shortWhere: "Sacramento, CA",
-    // longWhere: "Sacramento, California",
-    // year: [new Date(2010, 5), new Date(2011, 6)],
-    // },
+    {
+      name: "Universal Technical Institute",
+      location: "Sacramento, CA",
+      degree: "Diploma, Automotive/Diesel and Industrial Technology",
+      year: "2007",
+      url:
+        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/UTIdiploma.jpeg",
+    },
   ],
 };
 
@@ -220,51 +180,59 @@ const certifications = {
   title: "Certifications",
   content: [
     {
-      where: "MITx",
-      what: "Introduction to Computer Science and Programming Using Python",
+      location: "edX",
+      name: "Introduction to Computer Science and Programming Using Python",
       url:
         "https://courses.edx.org/certificates/4117ecd2c2ee46a0a39e7622d71e93b1",
     },
 
     {
-      where: "Free Code Camp",
-      what: "Responsive Web Design",
+      location: "Free Code Camp",
+      name: "Responsive Web Design",
       url:
         "https://www.freecodecamp.org/certification/wmcooper2/responsive-web-design",
     },
+
     {
-      where: "Free Code Camp",
-      what: "Javascript Algorithms and Data Structures",
+      location: "Free Code Camp",
+      name: "Javascript Algorithms and Data Structures",
       url:
         "https://www.freecodecamp.org/certification/wmcooper2/javascript-algorithms-and-data-structures",
     },
+
     {
-      where: "Free Code Camp",
-      what: "Front End Libraries",
+      location: "Free Code Camp",
+      name: "Front End Libraries",
       url:
         "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
     },
+
     {
-      where: "Free Code Camp",
-      what: "Data Visualization",
+      location: "Free Code Camp",
+      name: "Data Visualization",
       url:
         "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
     },
+
     {
-      where: "Free Code Camp",
-      what: "APIs and Microservices",
+      location: "Free Code Camp",
+      name: "APIs and Microservices",
       url:
         "https://www.freecodecamp.org/certification/wmcooper2/apis-and-microservices",
     },
+
     {
-      where: "International TEFL Academy",
-      what: "TEFL Certificate",
-      url: "",
+      location: "International TEFL Academy",
+      name: "TEFL Certificate",
+      url:
+        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/TEFLcert.jpeg",
     },
+
     {
-      where: "Tokyo, Japan",
-      what: "JLPT N3",
-      url: "",
+      location: "Tokyo, Japan",
+      name: "JLPT N3",
+      url:
+        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/N3cert.jpeg",
     },
   ],
 };
@@ -273,7 +241,6 @@ export {
   description,
   webPresence,
   skills,
-  experiences,
   education,
   professionalExperience,
   certifications,
