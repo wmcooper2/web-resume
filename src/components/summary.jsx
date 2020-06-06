@@ -1,7 +1,7 @@
 import React from "react";
 import { ENGLISH } from "../constants.js";
 
-const CareerProfile = (props) => {
+const Summary = (props) => {
   const { data, lang } = props;
   const { title, content, japaneseTitle, japaneseContent } = data;
 
@@ -15,4 +15,4 @@ const CareerProfile = (props) => {
   );
 };
 
-export default CareerProfile;
+export default Summary;

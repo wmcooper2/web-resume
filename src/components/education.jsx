@@ -3,12 +3,12 @@ import {
   ENGLISH,
   ENG_EDU,
   JAP_EDU,
-  ENG_SCHOOL,
-  JAP_SCHOOL,
-  ENG_LOCATION,
-  JAP_LOCATION,
-  ENG_YEAR,
-  JAP_YEAR,
+  // ENG_SCHOOL,
+  // JAP_SCHOOL,
+  // ENG_LOCATION,
+  // JAP_LOCATION,
+  // ENG_YEAR,
+  // JAP_YEAR,
 } from "../constants.js";
 
 const Education = (props) => {
@@ -21,14 +21,14 @@ const Education = (props) => {
     schools.push(
       <React.Fragment key={schools.length}>
         <div className="school">
-          <div class="schoolheaderprefix">
+          <div className="schoolheaderprefix">
             <span className="schoolname">{school.name}</span>
             <span className="schoollocation">{school.location}</span>
           </div>
           <span className="schoolyear">{school.year}</span>
         </div>
 
-        <a href={school.url}>
+        <a href={school.url} style={{ textDecoration: "none" }}>
           <p className="degree">{school.degree}</p>
         </a>
       </React.Fragment>

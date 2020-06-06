@@ -8,7 +8,7 @@ const ProfessionalExperience = (props) => {
     jobs.push(
       <React.Fragment key={jobs.length}>
         <div className="job">
-          <div class="jobheaderprefix">
+          <div className="jobheaderprefix">
             <span className="companyname">{job.company}</span>
             <span className="joblocation">{job.location}</span>
           </div>

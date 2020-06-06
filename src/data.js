@@ -1,26 +1,16 @@
 import React from "react";
-import pythonIcon from "./python-icon.png";
-import javascriptIcon from "./javascript-icon.png";
-import reactIcon from "./react-icon.png";
+// import pythonIcon from "./python-icon.png";
+// import javascriptIcon from "./javascript-icon.png";
+// import reactIcon from "./react-icon.png";
 
 const description = {
-  title: "Career Profile",
+  title: "Summary",
   content: (
-    <React.Fragment>
-      <p>
-        I am a self-taught developer with an entrepreneurial mindset. I am a
-        planner and strategic thinker who is patient and perseveres toward my
-        goals. I am a strong generalist with a broad range of experience which
-        include mechanical repair, starting my own business and teaching. I am
-        passionate about creating new things and am focused on software
-        development.
-      </p>
-      <p>
-        My main interests are in making visual tools, but I love all kinds of
-        software, coding languages and creating new things with code. I’m not
-        afraid to dive right in and make a plan to reach my goals.
-      </p>
-    </React.Fragment>
+    <p>
+      I am a planner and strategic thinker who is patient when working toward my
+      goals. I am a strong generalist with a broad range of experience which
+      include mechanical repair, starting my own business and teaching.
+    </p>
   ),
   japaneseTitle: "求人情報",
   japaneseContent: (
@@ -70,8 +60,8 @@ const professionalExperience = [
   {
     company: "Borderlink, Inc.",
     location: "Tokyo, Japan",
-    year: ["2017", "Present"],
-    jobTitle: "ALT",
+    year: ["Feb 2017", "Present"],
+    jobTitle: "Assistant Language Teacher",
     talkingPoints: [
       "Developing software to assist in teaching English as a foreign language.",
       "Developing lesson plans, worked with Japanese teachers to target difficult concepts in English learning.",
@@ -83,7 +73,7 @@ const professionalExperience = [
   {
     company: "MorphoTrust USA",
     location: "Sacramento, CA",
-    year: ["2015", "2017"],
+    year: ["Aug 2015", "Feb 2017"],
     jobTitle: "Machine Operator 1",
     talkingPoints: [
       "Protected customer’s personal information following NASPO International security guidelines.",
@@ -96,7 +86,7 @@ const professionalExperience = [
   {
     company: "Bubba Mac's Link Shack",
     location: "Sacramento, CA",
-    year: ["2010", "2011"],
+    year: ["Jun 2010", "Jun 2011"],
     jobTitle: "Entrepreneur",
     talkingPoints: [
       "Developed well-researched plans and communicated my vision to the general public.",
@@ -109,7 +99,7 @@ const professionalExperience = [
   {
     company: "US Navy",
     location: "Various locations",
-    year: ["2007", "2010"],
+    year: ["Oct 2007", "Jan 2010"],
     jobTitle: "Nuclear Machinist Mate",
     talkingPoints: [
       "Trusted with sensitive information and classified documents.",
@@ -122,7 +112,7 @@ const professionalExperience = [
   {
     company: "CTI Leasing",
     location: "Laveen, AZ",
-    year: ["2005", "2006"],
+    year: ["Aug 2005", "Jul 2006"],
     jobTitle: "Maintenance Mechanic",
     talkingPoints: [
       "Performed preventive maintenance and repairs on class 8 vehicles, trailers and forklifts.",
@@ -135,11 +125,7 @@ const professionalExperience = [
 
 const skills = {
   title: "Primary Skills",
-  content: [
-    { what: "Python3", logo: pythonIcon },
-    { what: "Javascript", logo: javascriptIcon },
-    { what: "React", logo: reactIcon },
-  ],
+  content: ["Python", "Javascript", "MongoDB", "Express", "React", "Node"],
   japaneseTitle: "専門技術",
 };
 
@@ -149,8 +135,7 @@ const education = {
     {
       name: "DeVry University",
       location: "Elk Grove, CA",
-      degree:
-        "B.S., Business Administration, Concentration in Entrepreneurship",
+      degree: "B.S., Business Administration",
       year: "2014",
       url:
         "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/DeVryDegree.jpeg",
@@ -223,14 +208,14 @@ const certifications = {
 
     {
       location: "International TEFL Academy",
-      name: "TEFL Certificate",
+      name: "Teaching English as a Foreign Language",
       url:
         "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/TEFLcert.jpeg",
     },
 
     {
-      location: "Tokyo, Japan",
-      name: "JLPT N3",
+      location: "JLPT",
+      name: "Japanese Language Proficiency Test N3",
       url:
         "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/N3cert.jpeg",
     },

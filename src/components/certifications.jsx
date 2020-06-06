@@ -9,9 +9,9 @@ const Certifications = (props) => {
   let certs = [];
   for (let cert of content) {
     certs.push(
-      <div className="cert">
-        <div class="certheaderprefix">
-          <a href={cert.url}>
+      <div className="cert" key={cert.name}>
+        <div className="certheaderprefix">
+          <a href={cert.url} style={{ textDecoration: "none" }}>
             <span className="certname">{cert.name}</span>
           </a>
           <span className="certlocation">{cert.location}</span>

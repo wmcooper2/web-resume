@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.sass";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Name from "./components/name";
+import Skills from "./components/skills";
 import ProfessionalExperience from "./components/professionalexperience";
-import CareerProfile from "./components/careerprofile";
+import Summary from "./components/summary";
 import Education from "./components/education";
 import Certifications from "./components/certifications";
 import {
@@ -11,6 +11,7 @@ import {
   professionalExperience,
   education,
   certifications,
+  skills,
 } from "./data";
 import { ENGLISH, JAPANESE } from "./constants.js";
 
@@ -56,7 +57,11 @@ class App extends React.Component {
     return (
       <div className="resume">
         <Name changeLanguage={this.changeLanguage} lang={this.state.language} />
-        <CareerProfile data={description} lang={this.state.language} />
+        <a href="/download-resume" style={{textDecoration: "none"}}>
+          <span id="download">Download PDF Resume</span>
+        </a>
+        <Summary data={description} lang={this.state.language} />
+        <Skills data={skills} />
         <ProfessionalExperience
           data={professionalExperience}
           lang={this.state.language}
