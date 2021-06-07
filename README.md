@@ -21,4 +21,17 @@ Click on the links in the document.
 * Getting the PDF, Word document and the web version to work together was a small hassle because everything had to be done manually between 3 different ways of doing things (PDF, Microsoft, and the browser).
 
 ## More Information
-N/A
+Updating after a long break;  
+```bash
+pip3 install nodeenv
+nodeenv env
+. env/bin/activate
+npm update
+```
+
+Then the React dependencies were causing a problem, so;  
+1. Delete react, react-dom and react-scripts from `package.json`.  
+2. Reinstall them.  
+3. Run `npm start`.  
+...Works.
+

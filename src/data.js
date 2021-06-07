@@ -1,4 +1,9 @@
 import React from "react";
+let devryDegree = process.env.PUBLIC_URL + '/DevryDegree.jpeg'
+let nnptcCert = process.env.PUBLIC_URL +  "/NNPTCcert.jpeg"
+let utiDiploma = process.env.PUBLIC_URL +  "/UTIDiploma.jpeg"
+let n3Cert = process.env.PUBLIC_URL +  "/N3cert.jpeg"
+let teflCert = process.env.PUBLIC_URL +  "/TEFLcert.jpeg"
 // import pythonIcon from "./python-icon.png";
 // import javascriptIcon from "./javascript-icon.png";
 // import reactIcon from "./react-icon.png";
@@ -137,8 +142,8 @@ const education = {
       location: "Elk Grove, CA",
       degree: "B.S., Business Administration",
       year: "2014",
-      url:
-        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/DeVryDegree.jpeg",
+      url: devryDegree,
+        
     },
 
     {
@@ -146,8 +151,7 @@ const education = {
       location: "Goose Creek, SC",
       degree: "Certificate of Completion",
       year: "2008",
-      url:
-        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/NNPTCcert.jpeg",
+      url: nnptcCert
     },
 
     {
@@ -155,8 +159,7 @@ const education = {
       location: "Sacramento, CA",
       degree: "Diploma, Automotive/Diesel and Industrial Technology",
       year: "2007",
-      url:
-        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/UTIdiploma.jpeg",
+      url: utiDiploma
     },
   ],
 };
@@ -164,60 +167,70 @@ const education = {
 const certifications = {
   title: "Certifications",
   content: [
+    // {
+    //   location: "edX",
+    //   name: "Introduction to Computer Science and Programming Using Python",
+    //   url:
+    //     "https://courses.edx.org/certificates/4117ecd2c2ee46a0a39e7622d71e93b1",
+    // },
+
+    // {
+    //   location: "Free Code Camp",
+    //   name: "Responsive Web Design",
+    //   url:
+    //     "https://www.freecodecamp.org/certification/wmcooper2/responsive-web-design",
+    // },
+
+    // {
+    //   location: "Free Code Camp",
+    //   name: "Javascript Algorithms and Data Structures",
+    //   url:
+    //     "https://www.freecodecamp.org/certification/wmcooper2/javascript-algorithms-and-data-structures",
+    // },
+
+    // {
+    //   location: "Free Code Camp",
+    //   name: "Front End Libraries",
+    //   url:
+    //     "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
+    // },
+
+    // {
+    //   location: "Free Code Camp",
+    //   name: "Data Visualization",
+    //   url:
+    //     "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
+    // },
+
+    // {
+    //   location: "Free Code Camp",
+    //   name: "APIs and Microservices",
+    //   url:
+    //     "https://www.freecodecamp.org/certification/wmcooper2/apis-and-microservices",
+    // },
+
     {
-      location: "edX",
-      name: "Introduction to Computer Science and Programming Using Python",
-      url:
-        "https://courses.edx.org/certificates/4117ecd2c2ee46a0a39e7622d71e93b1",
+      location: "CompTIA A+",
+      name: "A+ Certified",
+      url: "https://www.credly.com/badges/aed399cc-104b-45f7-a10f-a6fb04e69e4e",
     },
 
     {
-      location: "Free Code Camp",
-      name: "Responsive Web Design",
-      url:
-        "https://www.freecodecamp.org/certification/wmcooper2/responsive-web-design",
-    },
-
-    {
-      location: "Free Code Camp",
-      name: "Javascript Algorithms and Data Structures",
-      url:
-        "https://www.freecodecamp.org/certification/wmcooper2/javascript-algorithms-and-data-structures",
-    },
-
-    {
-      location: "Free Code Camp",
-      name: "Front End Libraries",
-      url:
-        "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
-    },
-
-    {
-      location: "Free Code Camp",
-      name: "Data Visualization",
-      url:
-        "https://www.freecodecamp.org/certification/wmcooper2/front-end-libraries",
-    },
-
-    {
-      location: "Free Code Camp",
-      name: "APIs and Microservices",
-      url:
-        "https://www.freecodecamp.org/certification/wmcooper2/apis-and-microservices",
-    },
-
-    {
-      location: "International TEFL Academy",
-      name: "Teaching English as a Foreign Language",
-      url:
-        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/TEFLcert.jpeg",
+      location: "Certified Associate in Python Programming",
+      name: "PCEP",
+      url: "https://www.credly.com/badges/c8ce2fd3-96a6-4daa-a45a-fd52001fc3e5",
     },
 
     {
       location: "JLPT",
       name: "Japanese Language Proficiency Test N3",
-      url:
-        "https://s3-ap-northeast-1.amazonaws.com/wmcooper2.com/images/N3cert.jpeg",
+      url: n3Cert
+    },
+
+    {
+      location: "International TEFL Academy",
+      name: "Teaching English as a Foreign Language",
+      url: teflCert
     },
   ],
 };

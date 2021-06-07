@@ -5,7 +5,7 @@ const Skills = (props) => {
     <React.Fragment>
       <h2>Skills</h2>
       <div className="skills">
-        <p>Python, Javascript, MongoDB, Express, React, Node</p>
+        <p>Python, Javascript, MongoDB, Express, React, Node, Linux/Windows/MacOS</p>
       </div>
     </React.Fragment>
   );

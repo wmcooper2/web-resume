@@ -22,7 +22,7 @@ const Certifications = (props) => {
   return (
     <React.Fragment>
       <h2>{title}</h2>
-      <div className="certifications">{certs.reverse()}</div>
+      <div className="certifications">{certs}</div>
     </React.Fragment>
   );
 };
